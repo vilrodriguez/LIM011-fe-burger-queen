@@ -25,7 +25,8 @@
     "url": "https://github.com/vilrodriguez/LIM011-fe-burger-queen/issues"
   },
   "homepage": "https://github.com/vilrodriguez/LIM011-fe-burger-queen#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "eslint": "^6.8.0"
   }
 }
