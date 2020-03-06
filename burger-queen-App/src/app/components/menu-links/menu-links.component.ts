@@ -17,8 +17,8 @@ export class MenuLinksComponent implements OnInit {
     this.sideDishesButton = 'A'
   }
 
-  evento(){
-    console.log('funciono!!!');
+  evento(name){
+    console.log(name);
     
   }
 
