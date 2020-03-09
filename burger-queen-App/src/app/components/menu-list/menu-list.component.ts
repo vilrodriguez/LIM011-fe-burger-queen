@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { FirestoreService } from "../../services/firestore.service";
-import { MenuNameService } from 'src/app/services/menu-name-service.service';
+import { MenuNameService } from '../../services/menu-name-service.service';
 
 @Component({
   selector: "app-menu-list",
@@ -14,12 +14,10 @@ export class MenuListComponent implements OnInit {
   constructor(private db: FirestoreService, private menuNameService: MenuNameService) {
     this.menuNameService.currentString.subscribe(string =>{
       this.menuString = string;
-      console.log(this.menuString);
-      
       this.db.getDataByCategory(this.menuString)
     .subscribe((data) => {
-      this.menuItems = data;
-      console.log(data)});
+      return this.menuItems = data;
+      });
     });
   }
 
