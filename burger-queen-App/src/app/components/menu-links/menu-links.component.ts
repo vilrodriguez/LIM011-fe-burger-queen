@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuNameService } from 'src/app/services/menu-name-service.service';
 
 @Component({
   selector: 'app-menu-links',
@@ -6,19 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-links.component.scss']
 })
 export class MenuLinksComponent implements OnInit {
+  menuString: string;
   breakfastButton: string;
   lunchButton: string;
   drinksButton: string;
   sideDishesButton: string;
-  constructor() { 
-    this.breakfastButton = 'D',
-    this.lunchButton = 'P',
-    this.drinksButton = 'B',
-    this.sideDishesButton = 'A'
+  
+  constructor(private menuNameService: MenuNameService) {
+    
+    this.breakfastButton = 'D';
+    this.lunchButton = 'P';
+    this.drinksButton = 'B';
+    this.sideDishesButton = 'A';
+
+    this.menuNameService.currentString.subscribe(string =>{
+      this.menuString = string;
+    });
   }
 
   evento(name){
-    console.log(name);
+    const string = name;
+    this.menuNameService.changeString(string);
     
   }
 
@@ -26,3 +35,24 @@ export class MenuLinksComponent implements OnInit {
   } 
 
 }
+// export class MenuLinksComponent implements OnInit {
+//   breakfastButton: string;
+//   lunchButton: string;
+//   drinksButton: string;
+//   sideDishesButton: string;
+//   constructor() { 
+//     this.breakfastButton = 'D',
+//     this.lunchButton = 'P',
+//     this.drinksButton = 'B',
+//     this.sideDishesButton = 'A'
+//   }
+
+//   evento(name){
+//     console.log(name);
+    
+//   }
+
+//   ngOnInit(): void{
+//   } 
+
+// }

@@ -8,7 +8,7 @@ export class FirestoreService {
   // private itemCollection: AngularFirestoreCollection
   constructor(private firestore: AngularFirestore) { }
 
-  getDataByCategory(menuName) {
+  getDataByCategory(menuName:string) {
     return this.firestore.collection(menuName).valueChanges();
   }
 }
