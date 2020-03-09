@@ -4,11 +4,11 @@ import { FirestoreService } from "../../services/firestore.service";
 import { MenuNameService } from 'src/app/services/menu-name-service.service';
 
 @Component({
-  selector: "app-menu-breakfast",
-  templateUrl: "./menu-breakfast.component.html",
-  styleUrls: ["./menu-breakfast.component.scss"]
+  selector: "app-menu-list",
+  templateUrl: "./menu-list.component.html",
+  styleUrls: ["./menu-list.component.scss"]
 })
-export class MenuBreakfastComponent implements OnInit {
+export class MenuListComponent implements OnInit {
   menuString: string;
   public menuItems = [];
   constructor(private db: FirestoreService, private menuNameService: MenuNameService) {
@@ -25,19 +25,3 @@ export class MenuBreakfastComponent implements OnInit {
 
   ngOnInit() {}
 }
-
-// export class MenuBreakfastComponent implements OnInit {
-//   menuString: string;
-//   public menuItems = [];
-//   constructor(private db: FirestoreService, private menuNameService: MenuNameService) {
-//     this.menuNameService.currentString.subscribe(string =>{
-//       this.menuString = string;
-//     });
-//     /*    this.db.getDataByCategory(menuName)
-//     .subscribe((data) => {
-//       console.log(data)
-//     }) */
-//   }
-
-//   ngOnInit() {}
-// }
