@@ -11,7 +11,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuLinksComponent } from './components/menu-links/menu-links.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
-
+import { CustomerRequestComponent } from './components/customer-request/customer-request.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
     HeaderComponent,
     MenuLinksComponent,
     MenuListComponent,
+    CustomerRequestComponent,
   ],
   imports: [
     BrowserModule,
