@@ -16,11 +16,14 @@ export class MenuNameService {
     return ndate;
   }
 
-  private selectedProduct = new BehaviorSubject({});
-  currentProduct = this.selectedProduct.asObservable();
-  changeProduct(value){
-    this.selectedProduct.next(value);
-    console.log(value);
+  private arrOrder = new BehaviorSubject([]);
+  currentProduct = this.arrOrder.asObservable();
+  changeProduct(obj){
+    // console.log(this.arrOrder.value);
+    // const newArrOrder = this.arrOrder.value.concat(obj);
+    const newArrOrder =  [{...this.arrOrder.value, ...obj}]
+    // console.log(newArrOrder);
+    this.arrOrder.next(newArrOrder);
     
   }
 }
