@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuNameService } from '../../services/menu-name-service.service';
 
 @Component({
   selector: 'app-customer-request',
@@ -6,8 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
-
-  constructor() { }
+  currentproduct:any;
+  orderedItem:any;
+  constructor(private menuNameService: MenuNameService) { 
+    this.menuNameService.currentProduct.subscribe(obj => {
+      this.currentproduct = obj;
+      this.currentproduct.forEach((element) => {
+        return this.orderedItem = element;
+      })
+    })
+  }
 
   ngOnInit(): void {
   }

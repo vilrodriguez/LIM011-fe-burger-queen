@@ -1,1 +1,6 @@
-<p>customer-request works!</p>
+
+<ul class = "customer-order-list">
+    <li *ngFor = " let item of currentproduct"> 
+        <button class=""> {{item.product}} {{item.price}}s/</button>
+    </li>
+</ul>
