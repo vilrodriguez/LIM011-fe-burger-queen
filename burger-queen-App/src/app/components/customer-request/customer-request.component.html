@@ -1,1 +1,9 @@
-<p>customer-request works!</p>
+    <section>
+    <h2>Orden de cliente:</h2>
+    <ul class = "customer-order-list">
+        <li *ngFor = " let item of currentproduct"> 
+            <button> {{item.product}} {{item.price}}s/</button>
+        </li>
+    </ul>
+    </section>
+

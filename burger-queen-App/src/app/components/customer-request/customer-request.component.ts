@@ -9,11 +9,16 @@ import { MenuNameService } from 'src/app/services/menu-name-service.service';
 
 export class CustomerRequestComponent implements OnInit {
   currentproduct: any;
+  orderedItem: any;
   constructor(private menuNameService: MenuNameService) { 
     this.menuNameService.currentProduct.subscribe(obj =>{
       this.currentproduct = obj;
-      console.log(obj);
-  })
+      console.log(this.currentproduct);
+      this.currentproduct.forEach((element) => {
+        return this.orderedItem = element;
+        /* console.log(ele) */});
+      // console.log(obj);
+    })
   }
 
 ngOnInit(): void {
