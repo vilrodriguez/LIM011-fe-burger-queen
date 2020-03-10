@@ -8,6 +8,7 @@ import { MenuNameService } from '../../services/menu-name-service.service';
   templateUrl: "./menu-list.component.html",
   styleUrls: ["./menu-list.component.scss"]
 })
+
 export class MenuListComponent implements OnInit {
   menuString: string;
   public menuItems = [];
