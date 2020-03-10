@@ -33,6 +33,13 @@ export class MenuListComponent implements OnInit {
       });
     });
   }
+  getCustomerRequest(item){
+    const object = item;
+    this.menuNameService.changeProduct(object);
+  }
+  todaydate: any;
+  ngOnInit() {
+     this.todaydate = this.menuNameService.todayDate();
     
-  ngOnInit() {}
+  }
 }

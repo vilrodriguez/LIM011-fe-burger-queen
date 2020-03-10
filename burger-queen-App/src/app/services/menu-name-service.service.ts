@@ -11,4 +11,17 @@ export class MenuNameService {
   changeString(value){
     this.menuNameSource.next(value);
   }
+  todayDate(){
+    let ndate = new Date();
+    return ndate;
+  }
+
+  private selectedProduct = new BehaviorSubject({});
+  currentProduct = this.selectedProduct.asObservable();
+  changeProduct(value){
+    this.selectedProduct.next(value);
+    console.log(value);
+    
+  }
 }
+
