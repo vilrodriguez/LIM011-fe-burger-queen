@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { FirestoreService } from "../../services/firestore.service";
-import { MenuNameService } from 'src/app/services/menu-name-service.service';
+import { MenuNameService } from '../../services/menu-name-service.service';
 
 @Component({
   selector: "app-menu-list",
   templateUrl: "./menu-list.component.html",
   styleUrls: ["./menu-list.component.scss"]
 })
+
 export class MenuListComponent implements OnInit {
   menuString: string;
   menuNameToShow: string;
@@ -32,6 +33,13 @@ export class MenuListComponent implements OnInit {
       });
     });
   }
+  getCustomerRequest(item){
+    const object = item;
+   return this.menuNameService.changeProduct(object);
+  }
+  todaydate: any;
+  ngOnInit() {
+     this.todaydate = this.menuNameService.todayDate();
     
-  ngOnInit() {}
+  }
 }
