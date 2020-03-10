@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
 import { FirestoreService } from "../../services/firestore.service";
 import { MenuNameService } from '../../services/menu-name-service.service';
 
@@ -11,17 +10,29 @@ import { MenuNameService } from '../../services/menu-name-service.service';
 
 export class MenuListComponent implements OnInit {
   menuString: string;
+  menuNameToShow: string;
   public menuItems = [];
   constructor(private db: FirestoreService, private menuNameService: MenuNameService) {
     this.menuNameService.currentString.subscribe(string =>{
       this.menuString = string;
       this.db.getDataByCategory(this.menuString)
     .subscribe((data) => {
-      return this.menuItems = data;
+       if (this.menuString === 'breakfast'){
+        this.menuNameToShow = 'DESAYUNO';
+      } 
+      else if (this.menuString === 'lunch'){
+        this.menuNameToShow = 'PLATOS';
+      }
+      else if (this.menuString === 'sideDishes'){
+        this.menuNameToShow = 'ACOMPAÑANTES';
+      } 
+      else if (this.menuString === 'drinks'){
+       this.menuNameToShow = 'bebidas';
+      }
+    return (this.menuItems = data) && (this.menuNameToShow);
       });
     });
   }
-  // CREAR CONDICIONAL PARA EL TÍTULO
-
+    
   ngOnInit() {}
 }
