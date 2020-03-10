@@ -21,6 +21,7 @@ export class MenuListComponent implements OnInit {
       });
     });
   }
+  // CREAR CONDICIONAL PARA EL TÍTULO
 
   ngOnInit() {}
 }
