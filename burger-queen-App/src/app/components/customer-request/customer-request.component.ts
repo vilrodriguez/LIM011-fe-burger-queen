@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuNameService } from '../../services/menu-name-service.service';
+import { MenuNameService } from 'src/app/services/menu-name-service.service';
+
 
 @Component({
   selector: 'app-customer-request',
@@ -17,8 +18,6 @@ export class CustomerRequestComponent implements OnInit {
       })
     })
   }
-
-  ngOnInit(): void {
+ngOnInit(): void {
   }
-
 }

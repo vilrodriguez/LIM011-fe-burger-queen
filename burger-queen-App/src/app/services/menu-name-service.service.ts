@@ -22,9 +22,10 @@ export class MenuNameService {
     // console.log(this.arrOrder.value);
     const newArrOrder = this.arrOrder.value.concat(obj);
     // const newArrOrder =  [{...this.arrOrder.value, ...obj}]
-    console.log(newArrOrder);
+    // console.log(newArrOrder);
     this.arrOrder.next(newArrOrder);
     
   }
+
 }
 

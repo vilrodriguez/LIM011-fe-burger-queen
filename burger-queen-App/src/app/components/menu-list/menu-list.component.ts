@@ -35,7 +35,7 @@ export class MenuListComponent implements OnInit {
   }
   getCustomerRequest(item){
     const object = item;
-    this.menuNameService.changeProduct(object);
+   return this.menuNameService.changeProduct(object);
   }
   todaydate: any;
   ngOnInit() {
