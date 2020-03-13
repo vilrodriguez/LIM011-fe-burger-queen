@@ -2,7 +2,8 @@
     <h2>Orden de cliente:</h2>
     <ul class = "customer-order-list">
         <li *ngFor = " let item of result"> 
-            <button> {{item.product}} {{item.price}}s/ Cantidad: {{item.quantity}}</button>
+            <span>{{item.product}} {{item.price}}s/ </span>
+            <button> Cantidad: {{item.quantity}}</button>
         </li>
     </ul>
     </section>
