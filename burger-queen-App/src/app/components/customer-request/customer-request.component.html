@@ -1,8 +1,10 @@
     <section>
     <h2>Orden de cliente:</h2>
     <ul class = "customer-order-list">
-        <li *ngFor = " let item of currentproduct"> 
-            <button> {{item.product}} {{item.price}}s/</button>
+        <li *ngFor = " let item of result">
+            <span>{{item.product}} {{item.price}}s/</span> 
+            <button>Cantidad: {{item.quantity}}</button>
+            <button (click) = "subtractProducts(item.product)"> - </button>
         </li>
     </ul>
     </section>

@@ -1,5 +1,5 @@
 <section>
-    <h2> {{menuNameToShow.toUpperCase()}} {{todaydate}}</h2>
+    <h2> {{menuNameToShow.toUpperCase()}} </h2>
     <ul class = "menu-item-list">
         <li *ngFor = " let item of menuItems"> 
             <button class="item-btn" (click) = "getCustomerRequest(item)"> {{item.product}} {{item.price}}s/</button>

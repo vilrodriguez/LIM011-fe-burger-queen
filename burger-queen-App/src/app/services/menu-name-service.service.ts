@@ -11,10 +11,6 @@ export class MenuNameService {
   changeString(value){
     this.menuNameSource.next(value);
   }
-  todayDate(){
-    let ndate = new Date();
-    return ndate;
-  }
 
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
