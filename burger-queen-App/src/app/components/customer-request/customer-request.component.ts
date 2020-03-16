@@ -14,7 +14,11 @@ export class CustomerRequestComponent implements OnInit {
   constructor(private menuNameService: MenuNameService) { 
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
-      this.result = [...this.currentproduct.reduce( (arr, objectSelected) => {
+      this.order(this.currentproduct);
+    })
+  }
+  order(obj){
+  this.result = [...obj.reduce( (arr, objectSelected) => {
       const key = JSON.stringify([objectSelected.product, objectSelected.price]);
       if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: 0  });
       arr.get(key).quantity++;
@@ -24,31 +28,33 @@ export class CustomerRequestComponent implements OnInit {
       this.result.forEach((element) => {
         return this.orderedItem = element;
       })
-    })
-  }
+    }
 
- /* substractProduct (productName){
-    let finalArr:[{}];
-    this.result.filter((element)=> {
-     // console.log(element);
-      if (element.product ===! productName){
-        finalArr.push(element);
-      }
-    console.log(finalArr);
-    return finalArr;
+    reduceOrderProduct(obj){
+  this.result = [...obj.reduce( (arr, objectSelected) => {
+      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
+      if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: objectSelected.quantity  });
+      arr.get(key).quantity--;
+      return arr;
+      }, new Map).values()];
+      console.log(this.result);
+      this.result.forEach((element) => {
+        return this.orderedItem = element;
       })
-    }*/
-    substractProduct (productName){
-      let finalArr;
-      this.result.filter((element)=> {
-      finalArr = element.product === productName;
-      console.log(finalArr);
-      return finalArr;
-    })
-  }
+    }
+ substractProduct(obj){
+  this.result = [...obj.reduce( (arr, objectSelected) => {
+      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
+      if (arr.has(key)) arr.set(key, { ...objectSelected});
+      !arr.get(key);
+      return arr;
+      }, new Map).values()];
+      console.log(this.result);
+      this.result.forEach((element) => {
+        return this.orderedItem = element;
+      })
+    }
   
-
-
 ngOnInit(): void {
   }
 }
