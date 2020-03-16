@@ -26,6 +26,29 @@ export class CustomerRequestComponent implements OnInit {
       })
     })
   }
+
+ /* substractProduct (productName){
+    let finalArr:[{}];
+    this.result.filter((element)=> {
+     // console.log(element);
+      if (element.product ===! productName){
+        finalArr.push(element);
+      }
+    console.log(finalArr);
+    return finalArr;
+      })
+    }*/
+    substractProduct (productName){
+      let finalArr;
+      this.result.filter((element)=> {
+      finalArr = element.product === productName;
+      console.log(finalArr);
+      return finalArr;
+    })
+  }
+  
+
+
 ngOnInit(): void {
   }
 }
