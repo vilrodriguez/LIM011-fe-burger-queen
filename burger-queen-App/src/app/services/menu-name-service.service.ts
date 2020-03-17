@@ -18,16 +18,29 @@ export class MenuNameService {
 
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
-  result:any;
-  currentproduct:any;
-  orderedItem:any;
-
+  
   changeProduct(obj){
-    console.log('object???', obj.product);
-    const newArrOrder = this.arrOrder.value.concat(obj);
-    console.log(newArrOrder); 
+    let newArrOrder:any;
+    // console.log(this.arrOrder.value);
+    const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
+    // console.log(findProduct);
+    if (findProduct === undefined){
+    newArrOrder = this.arrOrder.value.concat(obj);
+    } else {
+      newArrOrder = this.arrOrder.value.map((element) =>{
+        let newObj:{};
+        // console.log(element)
+        if (element.product === obj.product){
+          newObj = {product: element.product, price: element.price, quantity: element.quantity+1};
+          return newObj;
+        } else {
+          return element;
+        }
+      })
+    }
+    console.log(newArrOrder);
+    // newArrOrder = this.arrOrder.value.concat(obj);
     this.arrOrder.next(newArrOrder);
-          
   }
   /* order(obj){
   this.result = [...obj.reduce( (arr, objectSelected) => {
@@ -43,3 +56,4 @@ export class MenuNameService {
 
 }
 
+// 
