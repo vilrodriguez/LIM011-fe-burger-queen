@@ -35,7 +35,9 @@ export class MenuListComponent implements OnInit {
   }
   getCustomerRequest(item){
     const object = item;
-   return this.menuNameService.changeProduct(object);
+    let newObj = {product:item.product, price: item.price, quantity: 1};
+    // create new obj with all element + quantity
+   return this.menuNameService.changeProduct(newObj);
   }
   todaydate: any;
   ngOnInit() {
