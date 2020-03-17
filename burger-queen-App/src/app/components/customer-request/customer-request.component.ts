@@ -14,21 +14,20 @@ export class CustomerRequestComponent implements OnInit {
   constructor(private menuNameService: MenuNameService) { 
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
-      this.order(this.currentproduct);
+
     })
   }
-  order(obj){
+ /*  order(obj){
   this.result = [...obj.reduce( (arr, objectSelected) => {
       const key = JSON.stringify([objectSelected.product, objectSelected.price]);
       if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: 0  });
       arr.get(key).quantity++;
       return arr;
       }, new Map).values()];
-      console.log(this.result);
-      this.result.forEach((element) => {
+        this.result.forEach((element) => {
         return this.orderedItem = element;
       })
-    }
+    } */
 
     reduceOrderProduct(obj){
   this.result = [...obj.reduce( (arr, objectSelected) => {
