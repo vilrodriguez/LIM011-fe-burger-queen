@@ -15,7 +15,7 @@ export class CustomerRequestComponent implements OnInit {
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
-      
+      this.reduceOrder(this.currentproduct);
     })
   }
   order(obj){
@@ -26,13 +26,8 @@ export class CustomerRequestComponent implements OnInit {
       })
     }
 
-    reduceOrderProduct(obj){
-  this.result = [...obj.reduce( (arr, objectSelected) => {
-      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
-      if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: objectSelected.quantity  });
-      arr.get(key).quantity--;
-      return arr;
-      }, new Map).values()];
+    reduceOrder(obj){
+    this.result = obj;
       // console.log(this.result);
       this.result.forEach((element) => {
         return this.orderedItem = element;
