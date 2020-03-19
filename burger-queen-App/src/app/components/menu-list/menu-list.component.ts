@@ -42,14 +42,7 @@ export class MenuListComponent implements OnInit {
     };
     
     
-    reduceProduct(item){
-      const object = item;
-      let newObj = {product:item.product, price: item.price, quantity: item.quantity};
-      // create new obj with all element + quantity
-    return this.menuNameService.reduceProductOrder(newObj);
-    };
-
-    //  deleteProduct(item){
+      //  deleteProduct(item){
     //   const object = item;
     //   let newObj = {product:item.product, price: item.price, quantity: item.quantity};
     //   // create new obj with all element + quantity

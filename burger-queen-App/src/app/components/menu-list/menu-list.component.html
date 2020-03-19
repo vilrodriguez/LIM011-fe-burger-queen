@@ -2,7 +2,7 @@
     <h2> {{menuNameToShow.toUpperCase()}} {{todaydate}}</h2>
     <ul class = "menu-item-list">
         <li *ngFor = " let item of menuItems"> 
-            <button class="item-btn" (click) = "getCustomerRequest(item)"> {{item.product}} {{item.price}}s/</button> <button (click)= "reduceProduct(item)"> -  </button> <button> Eliminar Producto </button>
+            <button class="item-btn" (click) = "getCustomerRequest(item)"> {{item.product}} {{item.price}}s/</button> <button> Eliminar Producto </button>
         </li>
     </ul>
 </section>
