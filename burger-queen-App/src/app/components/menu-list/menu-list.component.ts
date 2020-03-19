@@ -39,6 +39,7 @@ export class MenuListComponent implements OnInit {
       // create new obj with all element + quantity
     return this.menuNameService.changeProduct(newObj);
     };
+
     reduceProduct(item){
       const object = item;
       let newObj = {product:item.product, price: item.price, quantity: item.quantity};
@@ -46,6 +47,13 @@ export class MenuListComponent implements OnInit {
     return this.menuNameService.reduceProductOrder(newObj);
     };
 
+    deleteProduct(item){
+    const object = item;
+      let newObj = {product:item.product, price: item.price, quantity: item.quantity};
+      // create new obj with all element + quantity
+    return this.menuNameService.deleteProduct(newObj);
+    }
+    
   ngOnInit() {
      this.todaydate = this.menuNameService.todayDate();
      this.menuNameService.currentString.subscribe(string =>{

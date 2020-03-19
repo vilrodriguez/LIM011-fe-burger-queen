@@ -16,6 +16,7 @@ export class CustomerRequestComponent implements OnInit {
       this.currentproduct = obj;
       this.order(this.currentproduct);
       this.reduceOrder(this.currentproduct);
+      // this.substractProduct(this.currentproduct);
     })
   }
   order(obj){
@@ -34,13 +35,7 @@ export class CustomerRequestComponent implements OnInit {
       })
     }
  substractProduct(obj){
-  this.result = [...obj.reduce( (arr, objectSelected) => {
-      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
-      if (arr.has(key)) arr.set(key, { ...objectSelected});
-      !arr.get(key);
-      return arr;
-      }, new Map).values()];
-      console.log(this.result);
+  this.result = obj;
       this.result.forEach((element) => {
         return this.orderedItem = element;
       })
