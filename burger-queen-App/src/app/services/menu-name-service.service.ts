@@ -23,7 +23,6 @@ export class MenuNameService {
     let newArrOrder:any;
     // console.log(this.arrOrder.value);
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
-    // console.log(findProduct);
     if (findProduct === undefined){
     newArrOrder = this.arrOrder.value.concat(obj);
     } else {
@@ -32,6 +31,29 @@ export class MenuNameService {
         // console.log(element)
         if (element.product === obj.product){
           newObj = {product: element.product, price: element.price, quantity: element.quantity+1};
+          return newObj;
+        } else {
+          return element;
+        }
+      })
+    }
+    console.log(newArrOrder);
+    // newArrOrder = this.arrOrder.value.concat(obj);
+    this.arrOrder.next(newArrOrder);
+  }
+
+  reduceProductOrder(obj){
+    let newArrOrder:any;
+    // console.log(this.arrOrder.value);
+    const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
+    if (findProduct === undefined){
+    newArrOrder = this.arrOrder.value.concat(obj);
+    } else {
+      newArrOrder = this.arrOrder.value.map((element) =>{
+        let newObj:{};
+        // console.log(element)
+        if (element.product === obj.product){
+          newObj = {product: element.product, price: element.price, quantity: element.quantity-1};
           return newObj;
         } else {
           return element;
