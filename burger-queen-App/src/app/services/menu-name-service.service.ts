@@ -43,7 +43,8 @@ export class MenuNameService {
     // newArrOrder = this.arrOrder.value.concat(obj);
     this.arrOrder.next(newArrOrder);
   }
-
+  
+ 
   private arrOrdertoReduceProduct = new BehaviorSubject([]);
   currentProductsToreduceFrom = this.arrOrder.asObservable();
   // Uncomment for it to work
@@ -90,28 +91,24 @@ export class MenuNameService {
   //   this.arrOrder.next(newArrOrder);
   // }
   reduceProductOrder(obj){
-    let newArrOrder:any;
+    let newArrOrder=[];
     console.log('rtrtrt', this.arrOrder.value);
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
     if (findProduct === undefined){
-    newArrOrder = this.arrOrder.value.concat(obj);
+    newArrOrder = this.arrOrder.value;
     } else {
-      newArrOrder = this.arrOrder.value.map((element) =>{
+      this.arrOrder.value.forEach((element) =>{
         let newObj:{};
         if (element.product === obj.product){
-          if (element.quantity >= 1){
+          if (element.quantity > 1){
             newObj = {product: element.product, price: element.price, quantity: element.quantity-1};
-          return newObj;
-          } else if (element.quantity = 0){
-            newArrOrder = this.arrOrder.value.concat(obj);
-            return newObj;
+            newArrOrder.push(newObj);
           }
         } else {
-          return element;
+         newArrOrder.push(element);
         }
       });
     }
-    console.log('eee', newArrOrder)
     this.arrOrder.next(newArrOrder);
   }
 
