@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { FirestoreService } from "../../services/firestore.service";
+import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from '../../services/firestore.service';
 import { MenuNameService } from '../../services/menu-name-service.service';
 
 @Component({
-  selector: "app-menu-list",
-  templateUrl: "./menu-list.component.html",
-  styleUrls: ["./menu-list.component.scss"]
+  selector: 'app-menu-list',
+  templateUrl: './menu-list.component.html',
+  styleUrls: ['./menu-list.component.scss']
 })
 
 export class MenuListComponent implements OnInit {
@@ -52,8 +52,8 @@ export class MenuListComponent implements OnInit {
 
   ngOnInit() {
      this.todaydate = this.menuNameService.todayDate();
-     this.menuNameService.currentString.subscribe(string =>{
-      this.menuString = string;
+     this.menuNameService.currentString.subscribe(strng =>{
+      this.menuString = strng;
       this.db.getDataByCategory(this.menuString)
     .subscribe((data) => {
       this.translateMenuName(data);
