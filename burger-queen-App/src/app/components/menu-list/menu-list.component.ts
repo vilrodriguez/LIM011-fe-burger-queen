@@ -33,6 +33,7 @@ export class MenuListComponent implements OnInit {
           }
         return (this.menuItems = menuNameFromButtons) && (this.menuNameToShow);
       };
+      
 // get order and sends it to service
   getCustomerRequest(item){
       const object = item;

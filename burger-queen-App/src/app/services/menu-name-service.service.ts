@@ -46,8 +46,27 @@ export class MenuNameService {
 
   private arrOrdertoReduceProduct = new BehaviorSubject([]);
   currentProductsToreduceFrom = this.arrOrder.asObservable();
-  
-  reduceProductOrder(obj){
+  // Uncomment for it to work
+  // reduceProductOrder(obj){
+  //   let newArrOrder:any;
+  //   // console.log(this.arrOrder.value);
+  //   const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
+  //   if (findProduct === undefined){
+  //   newArrOrder = this.arrOrder.value.concat(obj);
+  //   } else {
+  //     newArrOrder = this.arrOrder.value.map((element) =>{
+  //       let newObj:{};
+  //       if (element.product === obj.product){
+  //         newObj = {product: element.product, price: element.price, quantity: element.quantity-1};
+  //         return newObj;
+  //       } else {
+  //         return element;
+  //       }
+  //     })
+  //   }
+  //   this.arrOrder.next(newArrOrder);
+  // }
+   reduceProductOrder(obj){
     let newArrOrder:any;
     // console.log(this.arrOrder.value);
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
@@ -56,7 +75,6 @@ export class MenuNameService {
     } else {
       newArrOrder = this.arrOrder.value.map((element) =>{
         let newObj:{};
-        // console.log(element)
         if (element.product === obj.product){
           newObj = {product: element.product, price: element.price, quantity: element.quantity-1};
           return newObj;
@@ -65,10 +83,30 @@ export class MenuNameService {
         }
       })
     }
-    // console.log(newArrOrder);
-    // newArrOrder = this.arrOrder.value.concat(obj);
     this.arrOrder.next(newArrOrder);
   }
+//  reduceProductOrder(obj){
+//     let newArrOrder:any;
+//     // console.log(this.arrOrder.value);
+//     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
+//     if (findProduct === undefined){
+//     newArrOrder = this.arrOrder.value.concat(obj);
+//      this.arrOrder.next(newArrOrder);
+//       } else {
+//         let finalArr:any[];
+//         this.arrOrder.value.forEach((element) =>{
+//           if (element.product === obj.product){
+//             if (element.quantity >=1){
+//             let newObj = {product: element.product, price: element.price, quantity: element.quantity-1};
+//             finalArr.push(newObj);
+//             } 
+//           }
+//             finalArr.push(element);
+//         })
+//           this.arrOrder.next(finalArr);
+
+//         }
+//  }
 
   deleteProductOrder(obj){
     let newArrOrder:any;
