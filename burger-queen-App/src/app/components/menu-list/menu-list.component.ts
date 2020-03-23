@@ -13,31 +13,44 @@ export class MenuListComponent implements OnInit {
   menuNameToShow: string;
   public menuItems = [];
   constructor(private db: FirestoreService, private menuNameService: MenuNameService) {
+
+  }
+  menuName(titleName){
+    if (this.menuString === 'breakfast'){
+      this.menuNameToShow = 'DESAYUNO';
+    } 
+    else if (this.menuString === 'lunch'){
+      this.menuNameToShow = 'PLATOS';
+    }
+    else if (this.menuString === 'sideDishes'){
+      this.menuNameToShow = 'ACOMPAÑANTES';
+    } 
+    else if (this.menuString === 'drinks'){
+     this.menuNameToShow = 'bebidas';
+    }
+  return (this.menuItems = titleName) && (this.menuNameToShow);
+    };
+
+  getCustomerRequest(item){
+    const object = item;
+    let newObj = {product:item.product, price: item.price, quantity: 1};
+    // create new obj with all element + quantity
+  return this.menuNameService.changeProduct(newObj);
+  };
+  reduceProduct(item){
+    const object = item;
+    let newObj = {product:item.product, price: item.price, quantity: item.quantity};
+    // create new obj with all element + quantity
+  return this.menuNameService.reduceOrder(newObj);
+
+  }
+  ngOnInit() {
     this.menuNameService.currentString.subscribe(string =>{
       this.menuString = string;
       this.db.getDataByCategory(this.menuString)
     .subscribe((data) => {
-       if (this.menuString === 'breakfast'){
-        this.menuNameToShow = 'DESAYUNO';
-      } 
-      else if (this.menuString === 'lunch'){
-        this.menuNameToShow = 'PLATOS';
-      }
-      else if (this.menuString === 'sideDishes'){
-        this.menuNameToShow = 'ACOMPAÑANTES';
-      } 
-      else if (this.menuString === 'drinks'){
-       this.menuNameToShow = 'bebidas';
-      }
-    return (this.menuItems = data) && (this.menuNameToShow);
+      this.menuName(data);
       });
     });
-  }
-  getCustomerRequest(item){
-    const object = item;
-   return this.menuNameService.changeProduct(object);
-  }
-  ngOnInit() {
-    
   }
 }

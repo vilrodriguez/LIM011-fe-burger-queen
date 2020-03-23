@@ -14,16 +14,12 @@ export class CustomerRequestComponent implements OnInit {
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
+      
     })
   }
   order(obj){
-  this.result = [...obj.reduce( (arr, objectSelected) => {
-      const key = JSON.stringify([objectSelected.product, objectSelected.price]);
-      if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: 0  });
-      arr.get(key).quantity++;
-      return arr;
-      }, new Map).values()];
-      console.log(this.result);
+  this.result = obj;
+      // console.log(this.result);
       this.result.forEach((element) => {
         return this.orderedItem = element;
       })
@@ -36,7 +32,7 @@ export class CustomerRequestComponent implements OnInit {
       arr.get(key).quantity--;
       return arr;
       }, new Map).values()];
-      console.log(this.result);
+      // console.log(this.result);
       this.result.forEach((element) => {
         return this.orderedItem = element;
       })
@@ -55,5 +51,6 @@ export class CustomerRequestComponent implements OnInit {
     }
   
 ngOnInit(): void {
+  
   }
 }
