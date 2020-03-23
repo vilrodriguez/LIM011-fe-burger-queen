@@ -28,7 +28,7 @@ export class CustomerRequestComponent implements OnInit {
     }
   reduceProduct(item){
       const object = item;
-      let newObj = {product:item.product, price: item.price, quantity: item.quantity};
+      const newObj = {product:object.product, price: object.price, quantity: object.quantity};
       // create new obj with all element + quantity
     return this.menuNameService.reduceProductOrder(newObj);
    };
