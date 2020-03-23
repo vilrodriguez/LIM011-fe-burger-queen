@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { FirestoreService } from "../../services/firestore.service";
+import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from '../../services/firestore.service';
 import { MenuNameService } from '../../services/menu-name-service.service';
 
 @Component({
-  selector: "app-menu-list",
-  templateUrl: "./menu-list.component.html",
-  styleUrls: ["./menu-list.component.scss"]
+  selector: 'app-menu-list',
+  templateUrl: './menu-list.component.html',
+  styleUrls: ['./menu-list.component.scss']
 })
 
 export class MenuListComponent implements OnInit {
@@ -33,6 +33,7 @@ export class MenuListComponent implements OnInit {
           }
         return (this.menuItems = menuNameFromButtons) && (this.menuNameToShow);
       };
+      
 // get order and sends it to service
   getCustomerRequest(item){
       const object = item;
@@ -42,14 +43,7 @@ export class MenuListComponent implements OnInit {
     };
     
     
-    reduceProduct(item){
-      const object = item;
-      let newObj = {product:item.product, price: item.price, quantity: item.quantity};
-      // create new obj with all element + quantity
-    return this.menuNameService.reduceProductOrder(newObj);
-    };
-
-    //  deleteProduct(item){
+      //  deleteProduct(item){
     //   const object = item;
     //   let newObj = {product:item.product, price: item.price, quantity: item.quantity};
     //   // create new obj with all element + quantity
@@ -58,8 +52,8 @@ export class MenuListComponent implements OnInit {
 
   ngOnInit() {
      this.todaydate = this.menuNameService.todayDate();
-     this.menuNameService.currentString.subscribe(string =>{
-      this.menuString = string;
+     this.menuNameService.currentString.subscribe(strng =>{
+      this.menuString = strng;
       this.db.getDataByCategory(this.menuString)
     .subscribe((data) => {
       this.translateMenuName(data);
