@@ -4,9 +4,9 @@
         <li *ngFor = " let item of result"> 
             <span>{{item.product}} {{item.price}}s/ </span>
             <span> Cantidad: {{item.quantity}}</span>
-            <button (click)="reduceOrderProduct(result)" > - </button> <button (click)="substractProduct(result)">Eliminar producto </button>
+            <button (click)="reduceProduct(item)"> - </button> <button>Eliminar producto </button>
         </li>
-        <span>{{finalArr}}</span>
+        <span></span>
     </ul>
     </section>
 

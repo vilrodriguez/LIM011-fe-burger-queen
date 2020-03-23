@@ -15,6 +15,7 @@ export class CustomerRequestComponent implements OnInit {
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
+      // this.reduceOrder(this.currentproduct);
       
     })
   }
@@ -25,31 +26,46 @@ export class CustomerRequestComponent implements OnInit {
         return this.orderedItem = element;
       })
     }
+  reduceProduct(item){
+      const object = item;
+      let newObj = {product:item.product, price: item.price, quantity: item.quantity};
+      // create new obj with all element + quantity
+    return this.menuNameService.reduceProductOrder(newObj);
+   };
+   
+    // reduceOrder(obj){
+    // this.result = obj;
+    //   // console.log(this.result);
+    //   this.result.forEach((element) => {
+    //     return this.orderedItem = element;
+    //   })
+    // }
+    // deleteProduct(item){
+    //   const object = item;
+    //   let newObj = {product:item.product, price: item.price, quantity: item.quantity};
+    //   // create new obj with all element + quantity
+    // return this.menuNameService.deleteProductOrder(newObj);
+    // };
 
-    reduceOrderProduct(obj){
-  this.result = [...obj.reduce( (arr, objectSelected) => {
-      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
-      if (!arr.has(key)) arr.set(key, { ...objectSelected, quantity: objectSelected.quantity  });
-      arr.get(key).quantity--;
-      return arr;
-      }, new Map).values()];
-      // console.log(this.result);
-      this.result.forEach((element) => {
-        return this.orderedItem = element;
-      })
-    }
- substractProduct(obj){
-  this.result = [...obj.reduce( (arr, objectSelected) => {
-      const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
-      if (arr.has(key)) arr.set(key, { ...objectSelected});
-      !arr.get(key);
-      return arr;
-      }, new Map).values()];
-      console.log(this.result);
-      this.result.forEach((element) => {
-        return this.orderedItem = element;
-      })
-    }
+    // deleteProductInOrder(obj){
+    // this.result = obj;
+    //   // console.log(this.result);
+    //   this.result.forEach((element) => {
+    //     return this.orderedItem = element;
+    //   })
+    // }
+//  substractProduct(obj){
+//   this.result = [...obj.reduce( (arr, objectSelected) => {
+//       const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
+//       if (arr.has(key)) arr.set(key, { ...objectSelected});
+//       !arr.get(key);
+//       return arr;
+//       }, new Map).values()];
+//       console.log(this.result);
+//       this.result.forEach((element) => {
+//         return this.orderedItem = element;
+//       })
+//     }
   
 ngOnInit(): void {
   
