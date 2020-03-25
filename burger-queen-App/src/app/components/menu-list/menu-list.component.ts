@@ -35,8 +35,6 @@ export class MenuListComponent implements OnInit {
   // get order and sends it to service
   async getCustomerRequest(item) {
     // const object = item;
-    console.log(await this.db.getDownloadUrl('breakfast/cafe_2.svg'));
-    this.img = this.db.getDownloadUrl('breakfast/cafe_2.svg');
     const newObj = {
       product: item.product,
       price: item.price,
