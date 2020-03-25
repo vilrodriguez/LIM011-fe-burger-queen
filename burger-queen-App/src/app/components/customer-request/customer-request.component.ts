@@ -18,48 +18,28 @@ export class CustomerRequestComponent implements OnInit {
       // this.reduceOrder(this.currentproduct);
       
     })
-  }
-  order(obj){
-  this.result = obj;
-      // console.log(this.result);
-      this.result.forEach((element) => {
-        return this.orderedItem = element;
-      })
-    }
-  reduceProduct(item){
+  };
+
+order(obj){
+    this.result = obj;
+    this.result.forEach((element) => {
+      return this.orderedItem = element;
+    })
+};
+  
+    reduceProduct(item){
       const newObj = {product:item.product, price: item.price, quantity: item.quantity};
       // create new obj with all element + quantity
     return this.menuNameService.reduceProductOrder(newObj);
-   };
-   
+  };
 
-    deleteProduct(item){
+  deleteProduct(item){
       const newObj = {product:item.product, price: item.price, quantity: item.quantity};
       // create new obj with all element + quantity
     return this.menuNameService.deleteProductOrder(newObj);
-    };
-
-    // deleteProductInOrder(obj){
-    // this.result = obj;
-    //   // console.log(this.result);
-    //   this.result.forEach((element) => {
-    //     return this.orderedItem = element;
-    //   })
-    // }
-//  substractProduct(obj){
-//   this.result = [...obj.reduce( (arr, objectSelected) => {
-//       const key = JSON.stringify([objectSelected.product, objectSelected.price, objectSelected.quantity]);
-//       if (arr.has(key)) arr.set(key, { ...objectSelected});
-//       !arr.get(key);
-//       return arr;
-//       }, new Map).values()];
-//       console.log(this.result);
-//       this.result.forEach((element) => {
-//         return this.orderedItem = element;
-//       })
-//     }
+  };
   
-ngOnInit(): void {
+ngOnInit() {
   
   }
 }
