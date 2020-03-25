@@ -37,19 +37,12 @@ export class MenuListComponent implements OnInit {
 // get order and sends it to service
   getCustomerRequest(item){
       const object = item;
-      let newObj = {product:item.product, price: item.price, quantity: 1};
+      let newObj = {product:item.product, price: item.price, image: item.image, quantity: 1};
       // create new obj with all element + quantity
     return this.menuNameService.changeProduct(newObj);
     };
     
     
-      //  deleteProduct(item){
-    //   const object = item;
-    //   let newObj = {product:item.product, price: item.price, quantity: item.quantity};
-    //   // create new obj with all element + quantity
-    // return this.menuNameService.deleteProductOrder(newObj);
-    // };
-
   ngOnInit() {
      this.todaydate = this.menuNameService.todayDate();
      this.menuNameService.currentString.subscribe(strng =>{

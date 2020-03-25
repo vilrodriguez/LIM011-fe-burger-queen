@@ -27,25 +27,17 @@ export class CustomerRequestComponent implements OnInit {
       })
     }
   reduceProduct(item){
-      const object = item;
-      const newObj = {product:object.product, price: object.price, quantity: object.quantity};
+      const newObj = {product:item.product, price: item.price, quantity: item.quantity};
       // create new obj with all element + quantity
     return this.menuNameService.reduceProductOrder(newObj);
    };
    
-    // reduceOrder(obj){
-    // this.result = obj;
-    //   // console.log(this.result);
-    //   this.result.forEach((element) => {
-    //     return this.orderedItem = element;
-    //   })
-    // }
-    // deleteProduct(item){
-    //   const object = item;
-    //   let newObj = {product:item.product, price: item.price, quantity: item.quantity};
-    //   // create new obj with all element + quantity
-    // return this.menuNameService.deleteProductOrder(newObj);
-    // };
+
+    deleteProduct(item){
+      const newObj = {product:item.product, price: item.price, quantity: item.quantity};
+      // create new obj with all element + quantity
+    return this.menuNameService.deleteProductOrder(newObj);
+    };
 
     // deleteProductInOrder(obj){
     // this.result = obj;
