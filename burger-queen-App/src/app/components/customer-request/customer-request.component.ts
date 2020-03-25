@@ -7,6 +7,7 @@ import { MenuNameService } from 'src/app/services/menu-name-service.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
+  todaydate: any;
   result: any;
   currentproduct: any;
   orderedItem: any;
@@ -39,6 +40,6 @@ order(obj) {
   }
 
 ngOnInit() {
-
+  this.todaydate = this.menuNameService.todayDate();
   }
 }
