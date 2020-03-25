@@ -1,15 +1,19 @@
     <section>
-    <h2>Orden de cliente:</h2>
-    <h4>Producto</h4>
-    <h4>Cantidad</h4>
-    <h4>Precio</h4>
+        <h4>Orden de cliente:</h4>
+    <ul class = "title-list">
+        <li>Producto</li>
+        <li>Precio</li>
+        <li>Cantidad</li>
+        <li>Subtotal</li>
+    </ul>
+
     <ul class = "customer-order-list">
-        <li class = "customer-order-list customer-order-list-item" *ngFor = "let item of result">
-            <span>{{item.product}} {{item.image}} {{item.price * item.quantity}}s/ </span>
+        <li class = "customer-order-list-item" *ngFor = "let item of result">
+            <span>{{item.product}} {{item.price}} {{item.subtotal}}s/ </span>
             <span> Cantidad: {{item.quantity}}</span>
             <button (click)="reduceProduct(item)"> - </button> <button (click)="deleteProduct(item)"> X </button>
         </li>
-        <div> <p>Total:</p></div>
+        <div class= "total"> <p>Total:</p></div>
     </ul>
     </section>
 
