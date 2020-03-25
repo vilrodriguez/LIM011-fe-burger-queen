@@ -65,13 +65,9 @@ export class MenuNameService {
     this.arrOrder.next(newArrOrder);
   }
 
- deleteProductOrder(obj) {
-    let newArrOrder: any;
-    const findProduct = this.arrOrder.value.find(element =>
-      element.product === obj.product);
-    console.log(findProduct);
-    newArrOrder = this.arrOrder.value.concat(!obj === findProduct);
-    console.log(newArrOrder);
-    this.arrOrder.next(newArrOrder);
+  deleteProductOrder(obj) {
+    let newArrOrder = [];
+    const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
+    this.arrOrder.next(newArrOrder = findProduct);
     }
   }
