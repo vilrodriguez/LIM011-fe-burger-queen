@@ -24,7 +24,6 @@ export class MenuNameService {
     const ndate = new Date();
     return ndate;
   }
-
   changeProduct(obj) {
     let newArrOrder: any;
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
@@ -33,9 +32,12 @@ export class MenuNameService {
     } else {
       newArrOrder = this.arrOrder.value.map((element) => {
         let newObj: {};
+        let tempObj:{};
+        // let subtotal:any;
         if (element.product === obj.product) {
-          newObj = {product: element.product, price: element.price, quantity: element.quantity + 1};
-
+          tempObj = {product: element.product, price: element.price, quantity: element.quantity + 1};
+          const subtotal = element.price * (element.quantity +1);
+          newObj = {product: element.product, price: element.price, subtotal: subtotal, quantity: element.quantity + 1};
           return newObj;
         } else {
           return element;
@@ -44,6 +46,7 @@ export class MenuNameService {
     }
     this.arrOrder.next(newArrOrder);
   }
+  
   reduceProductOrder(obj) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
@@ -52,9 +55,13 @@ export class MenuNameService {
     } else {
       this.arrOrder.value.forEach((element) => {
         let newObj: {};
+        let tempObj:{};
+
         if (element.product === obj.product) {
           if (element.quantity > 1) {
-            newObj = {product: element.product, price: element.price, quantity: element.quantity - 1};
+          tempObj = {product: element.product, price: element.price, quantity: element.quantity - 1};
+          const subtotal = element.price * (element.quantity -1);
+          newObj = {product: element.product, price: element.price, subtotal: subtotal, quantity: element.quantity -1};
             newArrOrder.push(newObj);
           }
         } else {
