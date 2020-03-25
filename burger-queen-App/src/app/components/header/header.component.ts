@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-     titleHeader: string;
+    titleHeader: string;
   constructor() { 
     this.titleHeader = 'Burger Queen'
   }

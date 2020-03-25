@@ -1,7 +1,30 @@
-.item-btn{
-    padding: .5em;
-    margin: .5em;
-}
-.menu-item-list{
+
+.menu-item-list  {
+    width:100%;
+    height:80vh;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     list-style-type: none;
+    justify-content: center;
+    background-color: red;
+}
+.menu-item-list li {
+    margin: 0.5em;
+    width: 100px;
+    height: auto;
+}
+.menu-item-list-item img{
+    width: 20px;
+    height:20px;
+}
+.item-btn{
+        
+    border: none;
+    margin: .5em;
+    padding: 1em;
+    width: 100%;
+    height: 25%;
+    border-radius: 1em;
+    background-color: honeydew;
 }
