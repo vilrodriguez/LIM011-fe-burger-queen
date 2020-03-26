@@ -21,7 +21,7 @@ export class CustomerRequestComponent implements OnInit {
   }
   
   getTotal(result) {
-    return result.reduce((a,b) =>a+b.subtotal,0);
+    return result.reduce((iterator,element) =>iterator+element.subtotal,0);
   }
 
 order(obj) {
