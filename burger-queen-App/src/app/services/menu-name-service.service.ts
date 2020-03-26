@@ -44,9 +44,12 @@ export class MenuNameService {
       });
     }
   
+  
   this.arrOrder.next(newArrOrder);
 
   }
+
+  
   
   reduceProductOrder(obj) {
     let newArrOrder = [];

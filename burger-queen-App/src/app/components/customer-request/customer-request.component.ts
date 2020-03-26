@@ -19,6 +19,10 @@ export class CustomerRequestComponent implements OnInit {
 
     });
   }
+  
+  getTotal(result) {
+    return result.reduce((iterator,element) =>iterator+element.subtotal,0);
+  }
 
 order(obj) {
     this.result = obj;

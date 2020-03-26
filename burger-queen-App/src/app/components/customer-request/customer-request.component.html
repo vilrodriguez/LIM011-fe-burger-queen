@@ -14,7 +14,7 @@
             <span> Cantidad: {{item.quantity}}</span>
             <button (click)="reduceProduct(item)"> - </button> <button (click)="deleteProduct(item)"> X </button>
         </li>
-        <div class= "total"> <p>Total:</p></div>
+        <div class= "total"> <p>Total:{{getTotal(result)}} </p></div>
     </ul>
     </section>
 
