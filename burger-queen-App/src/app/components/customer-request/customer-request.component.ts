@@ -7,6 +7,7 @@ import { MenuNameService } from 'src/app/services/menu-name-service.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
+  todaydate: any;
   result: any;
   currentproduct: any;
   orderedItem: any;
@@ -25,9 +26,11 @@ order(obj) {
       return this.orderedItem = element;
     });
 }
+  sumSubtotals(subtotalArr) {
 
+  }
     reduceProduct(item) {
-      const newObj = {product: item.product, price: item.price, quantity: item.quantity};
+      const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
       // create new obj with all element + quantity
       return this.menuNameService.reduceProductOrder(newObj);
   }
@@ -39,6 +42,7 @@ order(obj) {
   }
 
 ngOnInit() {
+  this.todaydate = this.menuNameService.todayDate();
 
   }
 }
