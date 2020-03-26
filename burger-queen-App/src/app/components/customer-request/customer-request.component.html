@@ -1,5 +1,6 @@
     <section>
         <h4>Orden de cliente:</h4>
+        <p>{{todaydate}}</p>
     <ul class = "title-list">
         <li>Producto</li>
         <li>Precio</li>
@@ -9,7 +10,7 @@
 
     <ul class = "customer-order-list">
         <li class = "customer-order-list-item" *ngFor = "let item of result">
-            <span>{{item.product}} {{item.price}}s/ {{item.subtotal}}s/ </span>
+            <span>{{item.product}} {{item.subtotal}}s/ </span>
             <span> Cantidad: {{item.quantity}}</span>
             <button (click)="reduceProduct(item)"> - </button> <button (click)="deleteProduct(item)"> X </button>
         </li>

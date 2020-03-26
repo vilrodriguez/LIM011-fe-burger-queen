@@ -41,14 +41,15 @@ export class MenuListComponent implements OnInit {
       product: item.product,
       price: item.price,
       image: item.image,
-      quantity: 1
+      quantity: 1,
+      subtotal: item.price,
     };
     // create new obj with all element + quantity
     return this.menuNameService.changeProduct(newObj);
   }
 
   ngOnInit() {
-    this.todaydate = this.menuNameService.todayDate();
+    // this.todaydate = this.menuNameService.todayDate();
     this.menuNameService.currentString.subscribe(strng => {
       this.menuString = strng;
       this.db.getDataByCategory(this.menuString).subscribe(data => {
