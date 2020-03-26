@@ -18,8 +18,8 @@ export class FirestoreService {
   getDataByCategory(menuName: string) {
     return this.firestore.collection(menuName).valueChanges();
   }
-
-  getDownloadUrl(path) {
-    return this.storage.ref(path).getDownloadURL();
-  }
+  // Method that goes to menu list component in case it´s needed
+  // getDownloadUrl(path) {
+  //   return this.storage.ref(path).getDownloadURL();
+  // }
 }
