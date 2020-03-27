@@ -48,9 +48,6 @@ export class MenuNameService {
   this.arrOrder.next(newArrOrder);
 
   }
-
-  
-  
   reduceProductOrder(obj) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
@@ -59,7 +56,7 @@ export class MenuNameService {
     } else {
       this.arrOrder.value.forEach((element) => {
         let newObj: {};
-        let tempObj:{};
+        let tempObj: {};
 
         if (element.product === obj.product) {
           if (element.quantity > 1) {
