@@ -20,6 +20,10 @@ export class CustomerRequestComponent implements OnInit {
 
     });
   }
+  
+  getTotal(result) {
+    return result.reduce((iterator,element) =>iterator+element.subtotal,0);
+  }
 
 order(obj) {
     this.result = obj;
@@ -27,9 +31,11 @@ order(obj) {
       return this.orderedItem = element;
     });
 }
+  sumSubtotals(subtotalArr) {
 
+  }
     reduceProduct(item) {
-      const newObj = {product: item.product, price: item.price, quantity: item.quantity};
+      const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
       // create new obj with all element + quantity
       return this.menuNameService.reduceProductOrder(newObj);
   }

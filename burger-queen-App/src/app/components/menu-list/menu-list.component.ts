@@ -41,7 +41,8 @@ export class MenuListComponent implements OnInit {
       product: item.product,
       price: item.price,
       image: item.image,
-      quantity: 1
+      quantity: 1,
+      subtotal: item.price,
     };
     // create new obj with all element + quantity
     return this.menuNameService.changeProduct(newObj);
