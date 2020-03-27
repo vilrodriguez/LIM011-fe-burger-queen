@@ -20,9 +20,8 @@ export class CustomerRequestComponent implements OnInit {
 
     });
   }
-  
   getTotal(result) {
-    return result.reduce((iterator,element) =>iterator+element.subtotal,0);
+    return result.reduce((iterator, element) => iterator + element.subtotal, 0);
   }
 
 order(obj) {
@@ -46,7 +45,7 @@ order(obj) {
       return this.menuNameService.deleteProductOrder(newObj);
   }
   onModificarPersona(event: Event) {
-    this.nombreCliente = (<HTMLInputElement>event.target).value;
+    this.nombreCliente = ( event.target as HTMLInputElement).value;
   }
 
 ngOnInit() {
