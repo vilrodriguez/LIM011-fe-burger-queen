@@ -8,8 +8,6 @@ export class MenuNameService {
   constructor() { }
   private menuNameSource = new BehaviorSubject('breakfast');
   currentString = this.menuNameSource.asObservable();
-
-
   // return array of object with customer order
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
@@ -17,15 +15,14 @@ export class MenuNameService {
   private arrOrdertoReduceProduct = new BehaviorSubject([]);
   currentProductsToreduceFrom = this.arrOrder.asObservable();
 
-  changeString(value) {
+  changeString(value: string) {
     this.menuNameSource.next(value);
   }
-  
   todayDate() {
     const ndate = new Date();
     return ndate;
   }
-  changeProduct(obj) {
+  changeProduct(obj: { product: string; price?: number; image?: string; quantity?: number; subtotal?: number; }) {
     let newArrOrder: any;
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
     if (findProduct === undefined) {
@@ -36,22 +33,19 @@ export class MenuNameService {
         // let subtotal:any;
         if (element.product === obj.product) {
           // const subtotal = element.price * (element.quantity +1);
-          newObj = {product: element.product, price: element.price, subtotal: element.price * (element.quantity +1), quantity: element.quantity + 1};
+          newObj = {product: element.product, price: element.price, subtotal: element.price *
+          (element.quantity + 1), quantity: element.quantity + 1};
           return newObj;
         } else {
           return element;
         }
       });
     }
-  
-  
-  this.arrOrder.next(newArrOrder);
+    this.arrOrder.next(newArrOrder);
 
   }
 
-  
-  
-  reduceProductOrder(obj) {
+  reduceProductOrder( obj: { product: string; price?: number; quantity?: number; subtotal?: number; } ) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
     if (findProduct === undefined) {
@@ -59,16 +53,15 @@ export class MenuNameService {
     } else {
       this.arrOrder.value.forEach((element) => {
         let newObj: {};
-        let tempObj:{};
-
         if (element.product === obj.product) {
           if (element.quantity > 1) {
           // const subtotal = element.price * (element.quantity -1);
-          newObj = {product: element.product, price: element.price, subtotal: element.price * (element.quantity -1), quantity: element.quantity -1};
+            newObj = {product: element.product, price: element.price,
+                     subtotal: element.price * (element.quantity - 1), quantity: element.quantity - 1};
             newArrOrder.push(newObj);
           }
         } else {
-         newArrOrder.push(element);
+          newArrOrder.push(element);
         }
       });
     }
@@ -76,7 +69,7 @@ export class MenuNameService {
     this.arrOrder.next(newArrOrder);
   }
 
-  deleteProductOrder(obj) {
+  deleteProductOrder(obj: { product: any; price?: any; quantity?: any; }) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
     this.arrOrder.next(newArrOrder = findProduct);

@@ -19,28 +19,24 @@ export class CustomerRequestComponent implements OnInit {
 
     });
   }
-  
-  getTotal(result) {
-    return result.reduce((iterator,element) =>iterator+element.subtotal,0);
+  getTotal(result: any[]) {
+    return result.reduce(( iterator: number, element: { subtotal: number; }) => {
+      return iterator + element.subtotal;
+    }, 0);
   }
 
-order(obj) {
-    this.result = obj;
-    this.result.forEach((element) => {
-      return this.orderedItem = element;
-    });
-}
-  sumSubtotals(subtotalArr) {
-
+  order(obj: {}) {
+      this.result = obj;
+      this.result.forEach(( element: {} ) => this.orderedItem = element);
   }
-    reduceProduct(item) {
+  reduceProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
+  const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
+    // create new obj with all element + quantity
+  return this.menuNameService.reduceProductOrder(newObj);
+  }
+
+  deleteProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
       const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
-      return this.menuNameService.reduceProductOrder(newObj);
-  }
-
-  deleteProduct(item) {
-      const newObj = {product: item.product, price: item.price, quantity: item.quantity};
       // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
