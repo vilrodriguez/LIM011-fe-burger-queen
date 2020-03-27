@@ -1,5 +1,11 @@
     <section>
-        <h4>Orden de cliente:</h4>
+        <label>Nombre de cliente:</label>
+        <input type="text" class="form-control" (input) = "getCustomerName($event)">
+        <label>Mesa #:</label>
+        <input type="number" class="form-control" (input) = "getTableNumber($event)">
+        <label>Para Delivery:</label>
+        <input type="checkbox" class="form-control" (input) = "forDelivery($event)">
+      <p>{{customerName}}</p>
         <p>{{todaydate}}</p>
     <ul class = "title-list">
         <li>Producto</li>
@@ -16,5 +22,6 @@
         </li>
         <div class= "total"> <p>Total:{{getTotal(result)}} </p></div>
     </ul>
-    </section>
+    <button class="send-order-to">Enviar a Cocina</button>    
+</section>
 

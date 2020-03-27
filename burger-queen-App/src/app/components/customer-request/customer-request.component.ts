@@ -11,6 +11,7 @@ export class CustomerRequestComponent implements OnInit {
   result: any;
   currentproduct: any;
   orderedItem: any;
+  customerName = '';
   constructor(private menuNameService: MenuNameService) {
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
@@ -40,9 +41,11 @@ export class CustomerRequestComponent implements OnInit {
       // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
+  getCustomerName(event: Event) {
+    this.customerName = ( event.target as HTMLInputElement).value;
+  }
 
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
-
   }
 }

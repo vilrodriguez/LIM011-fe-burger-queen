@@ -9,7 +9,7 @@ import { MenuNameService } from '../../services/menu-name-service.service';
   styleUrls: ['./menu-list.component.scss']
 })
 export class MenuListComponent implements OnInit {
-  todaydate: any;
+  // todaydate: any;
   menuString: string;
   menuNameToShow: string;
   public menuItems = [];
