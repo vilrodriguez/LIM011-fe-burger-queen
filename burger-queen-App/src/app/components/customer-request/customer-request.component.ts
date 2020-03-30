@@ -8,18 +8,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
-  sendToKitchenForm: FormGroup;
+  // checkBoxAlertDelivery:string = 'PARA LLEVAR';
+  OrderForm: FormGroup;
   todaydate: any;
   result: any;
   currentproduct: any;
   orderedItem: any;
   customerName = '';
   constructor(private menuNameService: MenuNameService, private builder: FormBuilder) {
-    this.sendToKitchenForm = builder.group({
-      customerName: ['', Validators.required] ,
+    this.OrderForm = builder.group({
+      customerName: [''] ,
       table: [0],
       delivery: false,
-      order: builder.group([{ 
+      order: builder.group([{
         product: [''],
       price: [0],
       quantity: [0],
@@ -56,7 +57,7 @@ export class CustomerRequestComponent implements OnInit {
   getCustomerName(event: Event) {
     this.customerName = ( event.target as HTMLInputElement).value;
   }
-  send(values) {
+  sendOrder(values) {
     console.log(values);
   }
 

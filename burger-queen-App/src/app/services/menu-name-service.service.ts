@@ -22,7 +22,7 @@ export class MenuNameService {
     const ndate = new Date();
     return ndate;
   }
-  changeProduct(obj: { product: string; price?: number; image?: string; quantity?: number; subtotal?: number; }) {
+  changeProduct(obj: { product: string; price: number; image: string; quantity: number; subtotal: number; }) {
     let newArrOrder: any;
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
     if (findProduct === undefined) {
@@ -30,9 +30,7 @@ export class MenuNameService {
     } else {
       newArrOrder = this.arrOrder.value.map((element) => {
         let newObj: {};
-        // let subtotal:any;
         if (element.product === obj.product) {
-          // const subtotal = element.price * (element.quantity +1);
           newObj = {product: element.product, price: element.price, subtotal: element.price *
           (element.quantity + 1), quantity: element.quantity + 1};
           return newObj;
@@ -45,7 +43,7 @@ export class MenuNameService {
 
   }
 
-  reduceProductOrder( obj: { product: string; price?: number; quantity?: number; subtotal?: number; } ) {
+  reduceProductOrder( obj: { product: string; price: number; quantity: number; subtotal: number; } ) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
     if (findProduct === undefined) {
@@ -55,7 +53,6 @@ export class MenuNameService {
         let newObj: {};
         if (element.product === obj.product) {
           if (element.quantity > 1) {
-          // const subtotal = element.price * (element.quantity -1);
             newObj = {product: element.product, price: element.price,
                      subtotal: element.price * (element.quantity - 1), quantity: element.quantity - 1};
             newArrOrder.push(newObj);
@@ -69,7 +66,7 @@ export class MenuNameService {
     this.arrOrder.next(newArrOrder);
   }
 
-  deleteProductOrder(obj: { product: any; price?: any; quantity?: any; }) {
+  deleteProductOrder(obj: { product: string; price: number; quantity: number; }) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
     this.arrOrder.next(newArrOrder = findProduct);
