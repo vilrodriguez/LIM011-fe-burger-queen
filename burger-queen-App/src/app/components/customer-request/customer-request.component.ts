@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuNameService } from 'src/app/services/menu-name-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FirestoreService } from '../../services/firestore.service';
+
 
 @Component({
   selector: 'app-customer-request',
@@ -20,11 +22,11 @@ export class CustomerRequestComponent implements OnInit {
       customerName: [''] ,
       table: [0],
       delivery: false,
-      /* order: builder.group([{
-        product: [''],
-      price: [0],
-      quantity: [0],
-      }]), */
+      // order: builder.group([{
+      //         product: [''],
+      //         price: [0],
+      //         quantity: [0],
+      //         }]),
     });
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
@@ -54,11 +56,18 @@ export class CustomerRequestComponent implements OnInit {
       // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
-  getCustomerName(event: Event) {
-    this.customerName = ( event.target as HTMLInputElement).value;
-  }
-  sendOrder(values, result) {
-    console.log(values);
+  // getCustomerName(event: Event) {
+  //   this.customerName = ( event.target as HTMLInputElement).value;
+  // }
+  sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: {}, todaydate: any) {
+    const finalOrder = {
+      customerName: values.customerName,
+      tableNumber: values.table,
+      delivery: values.delivery,
+      date: todaydate,
+      order: result,
+      };
+    console.log(finalOrder);
   }
 
 ngOnInit() {

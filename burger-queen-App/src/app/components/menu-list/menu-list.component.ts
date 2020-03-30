@@ -47,7 +47,6 @@ export class MenuListComponent implements OnInit {
     // create new obj with all element + quantity
     return this.menuNameService.changeProduct(newObj);
   }
-
   ngOnInit() {
     // this.todaydate = this.menuNameService.todayDate();
     this.menuNameService.currentString.subscribe(strng => {
