@@ -19,7 +19,7 @@ export class CustomerRequestComponent implements OnInit {
       customerName: ['', Validators.required] ,
       table: [0],
       delivery: false,
-      order: builder.group([{ 
+      order: builder.group([{
         product: [''],
       price: [0],
       quantity: [0],
