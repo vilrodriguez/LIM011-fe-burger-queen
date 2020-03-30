@@ -15,7 +15,7 @@ export class MenuListComponent implements OnInit {
   public menuItems = [];
   img: Observable<string | null>;
   constructor(
-    private db: FirestoreService,
+    private dataBase: FirestoreService,
     private menuNameService: MenuNameService
   ) {}
 
@@ -35,8 +35,8 @@ export class MenuListComponent implements OnInit {
   // get order and sends it to service
   getCustomerRequest(item) {
     // const object = item;
-    // console.log(await this.db.getDownloadUrl('breakfast/cafe_2.svg'));
-    // this.img = this.db.getDownloadUrl('breakfast/cafe_2.svg');
+    // console.log(await this.dataBase.getDownloadUrl('breakfast/cafe_2.svg'));
+    // this.img = this.dataBase.getDownloadUrl('breakfast/cafe_2.svg');
     const newObj = {
       product: item.product,
       price: item.price,
@@ -52,7 +52,7 @@ export class MenuListComponent implements OnInit {
     // this.todaydate = this.menuNameService.todayDate();
     this.menuNameService.currentString.subscribe(strng => {
       this.menuString = strng;
-      this.db.getDataByCategory(this.menuString).subscribe(data => {
+      this.dataBase.getDataByCategory(this.menuString).subscribe(data => {
         this.translateMenuName(data);
       });
     });

@@ -17,24 +17,22 @@ export class CustomerRequestComponent implements OnInit {
   currentproduct: any;
   orderedItem: any;
   customerName = '';
-  constructor(private menuNameService: MenuNameService, private builder: FormBuilder) {
+  constructor(private menuNameService: MenuNameService,
+              private builder: FormBuilder,
+              private dataBase: FirestoreService) {
+
     this.OrderForm = builder.group({
       customerName: [''] ,
       table: [0],
       delivery: false,
-      // order: builder.group([{
-      //         product: [''],
-      //         price: [0],
-      //         quantity: [0],
-      //         }]),
     });
+
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
-      // this.reduceOrder(this.currentproduct);
-
     });
   }
+
   getTotal(result: any[]) {
     return result.reduce(( iterator: number, element: { subtotal: number; }) => {
       return iterator + element.subtotal;
@@ -67,7 +65,8 @@ export class CustomerRequestComponent implements OnInit {
       date: todaydate,
       order: result,
       };
-    console.log(finalOrder);
+      // console.log(finalOrder);
+    this.dataBase.sendOrderToKitchen(finalOrder);
   }
 
 ngOnInit() {
