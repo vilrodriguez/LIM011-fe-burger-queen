@@ -20,7 +20,7 @@ export class MenuNameService {
   changeString(value) {
     this.menuNameSource.next(value);
   }
-  
+
   todayDate() {
     const ndate = new Date();
     return ndate;
@@ -36,16 +36,16 @@ export class MenuNameService {
         // let subtotal:any;
         if (element.product === obj.product) {
           // const subtotal = element.price * (element.quantity +1);
-          newObj = {product: element.product, price: element.price, subtotal: element.price * (element.quantity +1), quantity: element.quantity + 1};
+          newObj = {product: element.product, price: element.price, subtotal: element.price * (element.quantity + 1), quantity: element.quantity + 1};
           return newObj;
         } else {
           return element;
         }
       });
     }
-  
-  
-  this.arrOrder.next(newArrOrder);
+
+
+    this.arrOrder.next(newArrOrder);
 
   }
   reduceProductOrder(obj) {
@@ -61,8 +61,10 @@ export class MenuNameService {
         if (element.product === obj.product) {
           if (element.quantity > 1) {
           // const subtotal = element.price * (element.quantity -1);
-          newObj = {product: element.product, price: element.price, subtotal: element.price * (element.quantity -1), quantity: element.quantity -1};
-            newArrOrder.push(newObj);
+          newObj = {product: element.product, price: element.price,
+            subtotal: element.price * (element.quantity - 1),
+            quantity: element.quantity - 1};
+          newArrOrder.push(newObj);
           }
         } else {
          newArrOrder.push(element);

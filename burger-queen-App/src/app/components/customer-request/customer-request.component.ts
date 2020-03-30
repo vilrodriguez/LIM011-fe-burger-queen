@@ -31,7 +31,6 @@ order(obj) {
     });
 }
   sumSubtotals(subtotalArr) {
-
   }
     reduceProduct(item) {
       const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
