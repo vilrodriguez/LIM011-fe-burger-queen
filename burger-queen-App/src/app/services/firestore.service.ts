@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-  AngularFirestore,
-  AngularFirestoreCollection
+  AngularFirestore
 } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
+// import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +10,16 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class FirestoreService {
   // private itemCollection: AngularFirestoreCollection
   constructor(
-    private firestore: AngularFirestore,
-    private storage: AngularFireStorage
+    private firestore: AngularFirestore
+    // private itemCollection: AngularFirestoreCollection
   ) {}
 
   getDataByCategory(menuName: string) {
     return this.firestore.collection(menuName).valueChanges();
   }
-  // Method that goes to menu list component in case it´s needed
-  // getDownloadUrl(path) {
-  //   return this.storage.ref(path).getDownloadURL();
-  // }
+
+  sendOrderToKitchen(obj: { customerName: string; tableNumber: number; delivery: boolean; date: any; order: {}; }) {
+    console.log(obj);
+    return this.firestore.collection('kitchen').add(obj);
+  }
 }
