@@ -57,7 +57,7 @@ export class CustomerRequestComponent implements OnInit {
   getCustomerName(event: Event) {
     this.customerName = ( event.target as HTMLInputElement).value;
   }
-  send(values) {
+  sendOrder(values) {
     console.log(values);
   }
 
