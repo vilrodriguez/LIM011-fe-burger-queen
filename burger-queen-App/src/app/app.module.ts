@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MenuLinksComponent } from './components/menu-links/menu-links.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { CustomerRequestComponent } from './components/customer-request/customer-request.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CustomerRequestComponent } from './components/customer-request/customer
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     // AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    ReactiveFormsModule
 
   ],
   providers: [],

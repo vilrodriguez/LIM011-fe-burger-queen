@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuNameService } from 'src/app/services/menu-name-service.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-request',
@@ -7,12 +8,23 @@ import { MenuNameService } from 'src/app/services/menu-name-service.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
+  sendToKitchenForm: FormGroup;
   todaydate: any;
   result: any;
   currentproduct: any;
   orderedItem: any;
-  nombreCliente = '';
-  constructor(private menuNameService: MenuNameService) {
+  customerName = '';
+  constructor(private menuNameService: MenuNameService, private builder: FormBuilder) {
+    this.sendToKitchenForm = builder.group({
+      customerName: ['', Validators.required] ,
+      table: [0],
+      delivery: false,
+      order: builder.group([{
+        product: [''],
+      price: [0],
+      quantity: [0],
+      }]),
+    });
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
@@ -20,31 +32,32 @@ export class CustomerRequestComponent implements OnInit {
 
     });
   }
-  getTotal(result) {
-    return result.reduce((iterator, element) => iterator + element.subtotal, 0);
+  getTotal(result: any[]) {
+    return result.reduce(( iterator: number, element: { subtotal: number; }) => {
+      return iterator + element.subtotal;
+    }, 0);
   }
 
-order(obj) {
-    this.result = obj;
-    this.result.forEach((element) => {
-      return this.orderedItem = element;
-    });
-}
-  sumSubtotals(subtotalArr) {
+  order(obj: {}) {
+      this.result = obj;
+      this.result.forEach(( element: {} ) => this.orderedItem = element);
   }
-    reduceProduct(item) {
+  reduceProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
+  const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
+    // create new obj with all element + quantity
+  return this.menuNameService.reduceProductOrder(newObj);
+  }
+
+  deleteProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
       const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
-      return this.menuNameService.reduceProductOrder(newObj);
-  }
-
-  deleteProduct(item) {
-      const newObj = {product: item.product, price: item.price, quantity: item.quantity};
       // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
-  onModificarPersona(event: Event) {
-    this.nombreCliente = ( event.target as HTMLInputElement).value;
+  getCustomerName(event: Event) {
+    this.customerName = ( event.target as HTMLInputElement).value;
+  }
+  send(values) {
+    console.log(values);
   }
 
 ngOnInit() {
