@@ -27,18 +27,18 @@
 </form>
 </section> -->
 
-
 <section>
-    <form [formGroup]="sendToKitchenForm" (ngSubmit)="send(sendToKitchenForm.value)" method="post">
+    <form [formGroup]="OrderForm" (ngSubmit)="sendOrder(OrderForm.value)" method="post">
         <label>Nombre de cliente:</label>
         <input type="text" formControlName = "customerName" class="form-control">
         <label>Mesa #:</label>
         <input type="number" formControlName = "table" class="form-control">
         <label>Para Delivery:</label>
         <input type="checkbox" formControlName = "delivery" class="form-control" >
+
         <p>{{customerName}}</p>
         <p>{{todaydate}}</p>
-    <ul class = "title-list">
+    <ul class="title-list">
         <li>Producto</li>
         <li>Precio</li>
         <li>Cantidad</li>
