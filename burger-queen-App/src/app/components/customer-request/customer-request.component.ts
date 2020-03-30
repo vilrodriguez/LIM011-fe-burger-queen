@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuNameService } from 'src/app/services/menu-name-service.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-request',
@@ -7,12 +8,23 @@ import { MenuNameService } from 'src/app/services/menu-name-service.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
+  sendToKitchenForm: FormGroup;
   todaydate: any;
   result: any;
   currentproduct: any;
   orderedItem: any;
   customerName = '';
-  constructor(private menuNameService: MenuNameService) {
+  constructor(private menuNameService: MenuNameService, private builder: FormBuilder) {
+    this.sendToKitchenForm = builder.group({
+      customerName: ['', Validators.required] ,
+      table: [0],
+      delivery: false,
+      order: builder.group([{ 
+        product: [''],
+      price: [0],
+      quantity: [0],
+      }]),
+    });
     this.menuNameService.currentProduct.subscribe(obj => {
       this.currentproduct = obj;
       this.order(this.currentproduct);
@@ -43,6 +55,9 @@ export class CustomerRequestComponent implements OnInit {
   }
   getCustomerName(event: Event) {
     this.customerName = ( event.target as HTMLInputElement).value;
+  }
+  send(values) {
+    console.log(values);
   }
 
 ngOnInit() {

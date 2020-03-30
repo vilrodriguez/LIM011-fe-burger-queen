@@ -1,18 +1,18 @@
-<section>
+<!-- <section>
 <form action="" method="post">
     <label>Nombre de cliente:</label>
     <input type="text" class="form-control" (input) = "getCustomerName($event)">
     <label>Mesa #:</label>
-    <input type="number" class="form-control" (input) = "getTableNumber($event)">
+    <input type="number" class="form-control" >
     <label>Para Delivery:</label>
-    <input type="checkbox" class="form-control" (input) = "forDelivery($event)">
+    <input type="checkbox" class="form-control" >
   <p>{{customerName}}</p>
     <p>{{todaydate}}</p>
-<ul class = "title-list">
-    <li>Producto</li>
-    <li>Precio</li>
-    <li>Cantidad</li>
-    <li>Subtotal</li>
+<ul class = "product-list">
+    <li class = "product-list-item">Producto</li>
+    <li class = "product-list-item">Precio</li>
+    <li class = "product-list-item">Cantidad</li>
+    <li class = "product-list-item">Subtotal</li>
 </ul>
 
 <ul class = "customer-order-list">
@@ -25,17 +25,18 @@
 </ul>
 <button type="submit" class="send-order-to">Enviar a Cocina</button>    
 </form>
-</section>
+</section> -->
 
 
-<!-- <section>
+<section>
+    <form [formGroup]="sendToKitchenForm" (ngSubmit)="send(sendToKitchenForm.value)" method="post">
         <label>Nombre de cliente:</label>
-        <input type="text" class="form-control" (input) = "getCustomerName($event)">
+        <input type="text" formControlName = "customerName" class="form-control">
         <label>Mesa #:</label>
-        <input type="number" class="form-control" (input) = "getTableNumber($event)">
-        <label>Para Delivery:</label>
-        <input type="checkbox" class="form-control" (input) = "forDelivery($event)">
-      <p>{{customerName}}</p>
+        <input type="number" formControlName = "table" class="form-control">
+        <!-- <label>Para Delivery:</label>
+        <input type="checkbox" formControlOrder = "customerName" class="form-control" > -->
+        <p>{{customerName}}</p>
         <p>{{todaydate}}</p>
     <ul class = "title-list">
         <li>Producto</li>
@@ -52,6 +53,7 @@
         </li>
         <div class= "total"> <p>Total:{{getTotal(result)}} </p></div>
     </ul>
-    <button class="send-order-to">Enviar a Cocina</button>    
+        <button class="send-order-to">Enviar a Cocina</button>    
+    </form>
 </section>
- -->
+
