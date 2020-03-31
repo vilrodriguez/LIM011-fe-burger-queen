@@ -19,7 +19,7 @@ export class FirestoreService {
   }
 
   sendOrderToKitchen(obj: { customerName: string; tableNumber: number; delivery: boolean; date: any; order: {}; }) {
-    console.log(obj);
+    // console.log(obj);
     return this.firestore.collection('kitchen').add(obj);
   }
 }
