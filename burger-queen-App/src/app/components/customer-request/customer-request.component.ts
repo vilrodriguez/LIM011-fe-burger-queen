@@ -66,10 +66,13 @@ export class CustomerRequestComponent implements OnInit {
       order: result,
       };
       // console.log(finalOrder);
+
       this.dataBase.sendOrderToKitchen(finalOrder);
       console.log('sent to kitchen');
       this.menuNameService.resetOrder();
       this.OrderForm.reset();
+  }
+
 
   }
 ngOnInit() {
