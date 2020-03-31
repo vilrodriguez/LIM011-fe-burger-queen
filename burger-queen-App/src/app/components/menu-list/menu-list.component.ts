@@ -34,6 +34,7 @@ export class MenuListComponent implements OnInit {
 
   // get order and sends it to service
   getCustomerRequest(item) {
+    console.log(item);
     // const object = item;
     // console.log(await this.dataBase.getDownloadUrl('breakfast/cafe_2.svg'));
     // this.img = this.dataBase.getDownloadUrl('breakfast/cafe_2.svg');

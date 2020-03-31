@@ -63,10 +63,12 @@ export class CustomerRequestComponent implements OnInit {
       tableNumber: values.table,
       delivery: values.delivery,
       date: todaydate,
-      order: result,
+      order: result
       };
       // console.log(finalOrder);
     this.dataBase.sendOrderToKitchen(finalOrder);
+    this.OrderForm.reset();
+    this.menuNameService.resetOrder();
   }
 
 ngOnInit() {

@@ -71,4 +71,9 @@ export class MenuNameService {
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
     this.arrOrder.next(newArrOrder = findProduct);
     }
+
+    resetOrder() {
+      const obj = [{}];
+      this.arrOrder.next(obj);
+    }
   }
