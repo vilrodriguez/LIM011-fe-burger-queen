@@ -67,6 +67,7 @@ export class CustomerRequestComponent implements OnInit {
       };
       // console.log(finalOrder);
     this.dataBase.sendOrderToKitchen(finalOrder);
+
   }
 
 ngOnInit() {
