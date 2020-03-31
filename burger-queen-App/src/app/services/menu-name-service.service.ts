@@ -12,8 +12,8 @@ export class MenuNameService {
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
 
-  private arrOrdertoReduceProduct = new BehaviorSubject([]);
-  currentProductsToreduceFrom = this.arrOrder.asObservable();
+  // private arrOrdertoReduceProduct = new BehaviorSubject([]);
+  // currentProductsToreduceFrom = this.arrOrder.asObservable();
 
   changeString(value: string) {
     this.menuNameSource.next(value);
@@ -71,4 +71,9 @@ export class MenuNameService {
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
     this.arrOrder.next(newArrOrder = findProduct);
     }
+  resetOrder() {
+    const obj = [];
+    this.arrOrder.next(obj);
+    }
   }
+
