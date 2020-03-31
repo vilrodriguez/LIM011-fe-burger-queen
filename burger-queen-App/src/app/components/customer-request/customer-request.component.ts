@@ -54,9 +54,6 @@ export class CustomerRequestComponent implements OnInit {
       // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
-  // getCustomerName(event: Event) {
-  //   this.customerName = ( event.target as HTMLInputElement).value;
-  // }
   sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: any, todaydate: any) {
       const finalOrder = {
       customerName: values.customerName,
@@ -70,8 +67,8 @@ export class CustomerRequestComponent implements OnInit {
       console.log('sent to kitchen');
       this.menuNameService.resetOrder();
       this.OrderForm.reset();
-
   }
+
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
   // this.sendOrder(this.OrderForm.value, this.result, this.todaydate);
