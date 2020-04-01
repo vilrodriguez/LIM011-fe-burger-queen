@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class MenuNameService {
   constructor() { }
   private menuNameSource = new BehaviorSubject('breakfast');
-  currentString = this.menuNameSource.asObservable();
   private arrOrder = new BehaviorSubject([]);
+  currentString = this.menuNameSource.asObservable();
   currentProduct = this.arrOrder.asObservable();
 
   changeString(value: string) {
@@ -60,7 +60,6 @@ export class MenuNameService {
     console.log(newArrOrder);
     this.arrOrder.next(newArrOrder);
   }
-
   deleteProductOrder(obj: { product: string; price: number; quantity: number; }) {
     let newArrOrder = [];
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);

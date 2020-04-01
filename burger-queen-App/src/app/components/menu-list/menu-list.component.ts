@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
 import { MenuNameService } from '../../services/menu-name-service.service';
 
@@ -10,8 +10,8 @@ import { MenuNameService } from '../../services/menu-name-service.service';
 })
 export class MenuListComponent implements OnInit {
   menuString: string;
-  menuNameToShow: string;
   public menuItems = [];
+  menuNameToShow: string;
   img: Observable<string | null>;
   constructor(
     private dataBase: FirestoreService,

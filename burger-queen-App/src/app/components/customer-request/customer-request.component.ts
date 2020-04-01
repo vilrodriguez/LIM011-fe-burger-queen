@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuNameService } from 'src/app/services/menu-name-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore.service';
+import { MenuNameService } from 'src/app/services/menu-name-service.service';
 
 
 @Component({
@@ -10,7 +10,6 @@ import { FirestoreService } from '../../services/firestore.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
-  // checkBoxAlertDelivery:string = 'PARA LLEVAR';
   OrderForm: FormGroup;
   todaydate: any;
   result: any;
