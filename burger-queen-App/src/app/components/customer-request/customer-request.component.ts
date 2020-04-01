@@ -45,13 +45,11 @@ export class CustomerRequestComponent implements OnInit {
   }
   reduceProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
     const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
     return this.menuNameService.reduceProductOrder(newObj);
   }
 
   deleteProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
       const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
   sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: any, todaydate: any) {
@@ -62,7 +60,6 @@ export class CustomerRequestComponent implements OnInit {
       date: todaydate,
       order: result,
       };
-      // console.log(finalOrder);
       this.dataBase.sendOrderToKitchen(finalOrder);
       console.log('sent to kitchen');
       this.menuNameService.resetOrder();
@@ -71,6 +68,5 @@ export class CustomerRequestComponent implements OnInit {
 
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
-  // this.sendOrder(this.OrderForm.value, this.result, this.todaydate);
   }
 }

@@ -8,12 +8,8 @@ export class MenuNameService {
   constructor() { }
   private menuNameSource = new BehaviorSubject('breakfast');
   currentString = this.menuNameSource.asObservable();
-  // return array of object with customer order
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
-
-  // private arrOrdertoReduceProduct = new BehaviorSubject([]);
-  // currentProductsToreduceFrom = this.arrOrder.asObservable();
 
   changeString(value: string) {
     this.menuNameSource.next(value);
@@ -40,7 +36,6 @@ export class MenuNameService {
       });
     }
     this.arrOrder.next(newArrOrder);
-
   }
 
   reduceProductOrder( obj: { product: string; price: number; quantity: number; subtotal: number; } ) {
@@ -75,5 +70,5 @@ export class MenuNameService {
     const obj = [];
     this.arrOrder.next(obj);
     }
-  }
+}
 
