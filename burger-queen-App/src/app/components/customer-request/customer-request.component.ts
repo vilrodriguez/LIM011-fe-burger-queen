@@ -44,9 +44,9 @@ export class CustomerRequestComponent implements OnInit {
       this.result.forEach(( element: {} ) => this.orderedItem = element);
   }
   reduceProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
-  const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-    // create new obj with all element + quantity
-  return this.menuNameService.reduceProductOrder(newObj);
+    const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
+      // create new obj with all element + quantity
+    return this.menuNameService.reduceProductOrder(newObj);
   }
 
   deleteProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
@@ -57,8 +57,8 @@ export class CustomerRequestComponent implements OnInit {
   // getCustomerName(event: Event) {
   //   this.customerName = ( event.target as HTMLInputElement).value;
   // }
-  sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: {}, todaydate: any) {
-    const finalOrder = {
+  sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: any, todaydate: any) {
+      const finalOrder = {
       customerName: values.customerName,
       tableNumber: values.table,
       delivery: values.delivery,
@@ -66,12 +66,14 @@ export class CustomerRequestComponent implements OnInit {
       order: result
       };
       // console.log(finalOrder);
-    this.dataBase.sendOrderToKitchen(finalOrder);
-    this.OrderForm.reset();
-    this.menuNameService.resetOrder();
-  }
+      this.dataBase.sendOrderToKitchen(finalOrder);
+      console.log('sent to kitchen');
+      this.menuNameService.resetOrder();
+      this.OrderForm.reset();
 
+  }
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
+  // this.sendOrder(this.OrderForm.value, this.result, this.todaydate);
   }
 }

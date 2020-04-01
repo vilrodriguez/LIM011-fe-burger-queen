@@ -1,6 +1,6 @@
 <section>
     <form [formGroup]="OrderForm" (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"method="post">
-        <label>Nombre de cliente:</label>
+        <label><strong>Nombre de cliente:</strong></label>
         <input type="text" formControlName = "customerName" class="form-control">
         <label>Mesa #:</label>
         <input type="number" formControlName = "table" class="form-control">

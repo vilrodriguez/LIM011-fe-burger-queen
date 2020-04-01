@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 4em 2fr 2fr;
     grid-template-rows: 3em auto;
-    grid-template-areas: 
+    grid-template-areas:
     "header header header header"
     "aside div div ";
     justify-items: stretch;
@@ -44,3 +44,4 @@
     grid-row-start: 2;
     grid-row-end: 3;
 }
+

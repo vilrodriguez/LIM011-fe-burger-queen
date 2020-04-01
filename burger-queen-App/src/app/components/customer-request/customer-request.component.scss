@@ -1,20 +1,37 @@
 .customer-order-list{
-    list-style-type: none;
-    width: 90%;
-    height: 90%;
+  list-style-type: none;
+  width: 90%;
+  height: 90%;
 }
 
 .customer-order-list-item button {
-    border: none;
-    background-color: gray;
-    margin: 0.5em;
-    padding: 0.5em 1em ;
-    border-radius: 1em;
+  border: none;
+  background-color: gray;
+  margin: 0.5em;
+  padding: 0.5em 1em ;
+  border-radius: 1em;
 }
 .title-list {
-    display: flex;
-    flex-direction: row;
-    justify-items: center;
-    justify-content: space-around;
-    list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: space-around;
+  list-style: none;
 }
+label{
+  width: 30px;
+}
+.form-control{
+  color: red;
+  height: 32px;
+  display: flex;
+}
+.form-control:focus{
+border: 1.5px solid #555;
+}
+/* todayDate() {
+  const ndate = new Date();
+  // const d = ndate.getDate() + ndate.getHours() + ndate.getMonth();
+  // return d;
+  return ndate;
+} */

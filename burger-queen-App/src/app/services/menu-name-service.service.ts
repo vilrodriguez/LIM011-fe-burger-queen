@@ -12,14 +12,16 @@ export class MenuNameService {
   private arrOrder = new BehaviorSubject([]);
   currentProduct = this.arrOrder.asObservable();
 
-  private arrOrdertoReduceProduct = new BehaviorSubject([]);
-  currentProductsToreduceFrom = this.arrOrder.asObservable();
+  // private arrOrdertoReduceProduct = new BehaviorSubject([]);
+  // currentProductsToreduceFrom = this.arrOrder.asObservable();
 
   changeString(value: string) {
     this.menuNameSource.next(value);
   }
   todayDate() {
     const ndate = new Date();
+    // const d = ndate.getDate() + ndate.getHours() + ndate.getMonth();
+    // return d;
     return ndate;
   }
   changeProduct(obj: { product: string; price: number; image: string; quantity: number; subtotal: number; }) {
@@ -71,9 +73,9 @@ export class MenuNameService {
     const findProduct = this.arrOrder.value.filter(element => element.product !== obj.product);
     this.arrOrder.next(newArrOrder = findProduct);
     }
-
-    resetOrder() {
-      const obj = [{}];
-      this.arrOrder.next(obj);
+  resetOrder() {
+    const obj = [];
+    this.arrOrder.next(obj);
     }
   }
+
