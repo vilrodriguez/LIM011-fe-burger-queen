@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuNameService } from 'src/app/services/menu-name-service.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore.service';
+import { MenuNameService } from 'src/app/services/menu-name-service.service';
 
 
 @Component({
@@ -10,7 +10,6 @@ import { FirestoreService } from '../../services/firestore.service';
   styleUrls: ['./customer-request.component.scss']
 })
 export class CustomerRequestComponent implements OnInit {
-  // checkBoxAlertDelivery:string = 'PARA LLEVAR';
   OrderForm: FormGroup;
   todaydate: any;
   result: any;
@@ -45,18 +44,13 @@ export class CustomerRequestComponent implements OnInit {
   }
   reduceProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
     const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
     return this.menuNameService.reduceProductOrder(newObj);
   }
 
   deleteProduct(item: { product: string; price: number; quantity: number; subtotal: number; }) {
       const newObj = {product: item.product, price: item.price, quantity: item.quantity, subtotal: item.subtotal};
-      // create new obj with all element + quantity
       return this.menuNameService.deleteProductOrder(newObj);
   }
-  // getCustomerName(event: Event) {
-  //   this.customerName = ( event.target as HTMLInputElement).value;
-  // }
   sendOrder(values: { customerName: string; table: number; delivery: boolean; }, result: any, todaydate: any) {
       const finalOrder = {
       customerName: values.customerName,
@@ -65,15 +59,13 @@ export class CustomerRequestComponent implements OnInit {
       date: todaydate,
       order: result,
       };
-      // console.log(finalOrder);
       this.dataBase.sendOrderToKitchen(finalOrder);
       console.log('sent to kitchen');
       this.menuNameService.resetOrder();
       this.OrderForm.reset();
-
   }
+
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
-  // this.sendOrder(this.OrderForm.value, this.result, this.todaydate);
   }
 }
