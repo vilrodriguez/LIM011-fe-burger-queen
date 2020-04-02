@@ -4,7 +4,7 @@
     (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"
     method="post"
   >
-    <label>Nombre de cliente:</label>
+    <label><strong>Nombre de cliente:</strong></label>
     <input type="text" formControlName="customerName" class="form-control" />
     <label>Mesa #:</label>
     <input type="number" formControlName="table" class="form-control" />
@@ -19,7 +19,6 @@
       <li>Cantidad</li>
       <li>Subtotal</li>
     </ul>
-
     <ul class="customer-order-list">
       <li class="customer-order-list-item" *ngFor="let item of result">
         <span>{{ item.product }} {{ item.subtotal }}s/ </span>
@@ -31,8 +30,9 @@
         <p>Total:{{ getTotal(result) }}</p>
       </div>
     </ul>
-
-    <button type="button" class="form-btn cancel-order" >Cancelar Orden</button>
-    <button type="submit" class="form-btn send-order-to">Enviar a Cocina</button>
+    <button type="button" class="form-btn cancel-order" (click)="cancelOrder()">
+      Cancelar Orden
+    </button>
+    <button class="send-order-to">Enviar a Cocina</button>
   </form>
 </section>
