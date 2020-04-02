@@ -3,7 +3,7 @@
   "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
-    "burger-queen-app": {
+    "burger-queen-App": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -28,8 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "..node_modules/normalize.css/normalize.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
