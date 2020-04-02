@@ -67,6 +67,7 @@ export class CustomerRequestComponent implements OnInit {
       this.menuNameService.resetOrder();
       this.OrderForm.reset();
   }
+
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
   // this.sendOrder(this.OrderForm.value, this.result, this.todaydate);
