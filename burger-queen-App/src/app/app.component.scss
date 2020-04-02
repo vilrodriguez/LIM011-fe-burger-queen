@@ -29,16 +29,17 @@
 .menu-items{
     width: 100%;
     height: 100%;
-    padding: .5em;
+    padding: 2.5em;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
+    text-align: center;
 }
 .customer-order{
     width: 100%;
     height: 100%;
-    padding: .5em;
+    padding: 1.5em;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
