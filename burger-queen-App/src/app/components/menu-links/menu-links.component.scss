@@ -1,8 +1,13 @@
 .menu-button {
-    padding: 1em;
-    background-color: red;
-    display: flex;
-    height: 25vh;
-    width: 100%;
-    border-style: none;
+  padding: 1em;
+  background: radial-gradient(grey, transparent);
+  font-family: "Spicy Rice", cursive;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: rgb(231, 210, 22);
+  display: -webkit-box;
+  display: flex;
+  height: 24vh;
+  width: 100%;
+  border-style: none;
 }
