@@ -1,5 +1,5 @@
 
-.menu-item-list  {
+.menu-list {
     width:100%;
     height:80vh;
     display:flex;
@@ -9,22 +9,27 @@
     justify-content: center;
     // background-color: red;
 }
-.menu-item-list li {
+.menu-list li {
     margin: 0.5em;
     width: 100px;
-    height: auto; 
+    height: auto;
 }
-.menu-item-list-item img{
+.menu-list-item img{
     width: 50px;
     height:50px;
 }
-.item-btn{
+.menu-title{
+  color: black;
 
-    border: none;
-    margin: .5em;
-    padding: 1em;
-    width: 100%;
-    height: auto;
-    border-radius: 1em;
-    background-color: honeydew;
+}
+.item-btn{
+  border: none;
+  margin: 0.5em;
+  padding: 1em;
+  width: 100%;
+  height: auto;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 1em;
+  background-color: darkslategrey;
+  color: floralwhite;
 }
