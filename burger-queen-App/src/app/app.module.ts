@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+// import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuLinksComponent } from './components/menu-links/menu-links.component';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
@@ -24,8 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireStorageModule,
+    AngularFirestoreModule, // firestore
+    // AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
     ReactiveFormsModule
 
   ],
