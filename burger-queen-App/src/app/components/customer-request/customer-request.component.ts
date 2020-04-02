@@ -60,15 +60,23 @@ export class CustomerRequestComponent implements OnInit {
       date: todaydate,
       order: result,
       };
+<<<<<<< HEAD
+=======
+      // console.log(finalOrder);
+>>>>>>> parent of ff0c9c8... Merge branch 'third' into second
       this.dataBase.sendOrderToKitchen(finalOrder);
       console.log('sent to kitchen');
       this.menuNameService.resetOrder();
       this.OrderForm.reset();
+<<<<<<< HEAD
   }
   cancelOrder() {
     this.menuNameService.resetOrder();
     this.OrderForm.reset();
     console.log('Cancelled Order');
+=======
+
+>>>>>>> parent of ff0c9c8... Merge branch 'third' into second
   }
 ngOnInit() {
   this.todaydate = this.menuNameService.todayDate();
