@@ -1,18 +1,22 @@
 <section>
-  <form
+  <form class="form-container"
     [formGroup]="OrderForm"
     (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"
-    method="post"
-  >
-    <label><strong>Nombre de cliente:</strong></label>
-    <input type="text" formControlName="customerName" class="form-control" />
-    <label>Mesa #:</label>
-    <input type="number" formControlName="table" class="form-control" />
-    <label>Para Delivery:</label>
-    <input type="checkbox" formControlName="delivery" class="form-control" />
-
+    method="post">
+    <div class="container-div">
+      <label class="cliente-name">Nombre de cliente:</label>
+      <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre"/>
+      
+        <label>Mesa #:</label>
+        <input type="number" formControlName="table" class="form-control" />
+        
+      <div class="form-order-inputs">
+        <input type="checkbox" formControlName="delivery" id="checkbox-delivery" class="form-control" />
+      <label for="checkbox-delivery">Delivery</label>
+      </div>
+    </div>
     <p>{{ customerName }}</p>
-    <p>{{ todaydate }}</p>
+    <p class="date">{{ todaydate }}</p>
     <ul class="title-list">
       <li>Producto</li>
       <li>Precio</li>
@@ -23,14 +27,14 @@
       <li class="customer-order-list-item" *ngFor="let item of result">
         <span>{{ item.product }} {{ item.subtotal }}s/ </span>
         <span> Cantidad: {{ item.quantity }}</span>
-        <button (click)="reduceProduct(item)">-</button>
-        <button (click)="deleteProduct(item)">X</button>
+        <button (click)="reduceProduct(item)"><img src="../src/remove.png"></button>
+        <button (click)="deleteProduct(item)"><img src="../src/img/close.png"></button>
       </li>
       <div class="total">
         <p>Total:{{ getTotal(result) }}</p>
       </div>
     </ul>
-    <button type="button" class="form-btn cancel-order" (click)="cancelOrder()">
+    <button type="button" class="form-btn-cancel-order" (click)="cancelOrder()">
       Cancelar Orden
     </button>
     <button class="send-order-to">Enviar a Cocina</button>
