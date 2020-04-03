@@ -1,15 +1,21 @@
 .header-title {
-  background: black;
-  font-family: 'Monoton', cursive;
-  font-size: 3.5rem;
-  // font-weight: bold;
-  letter-spacing: 26px;
-  color: gold;
+  background-color: #242527;
   text-align: center;
+  text-justify:auto;
   width: 100%;
   height: 100%;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+
+.neon-text {
+  color:  #f8c900;
+  font-size: 3rem;
+  letter-spacing: 30px;
+  padding-bottom: .2em;
+  font-family: 'Monoton', cursive;
+  text-shadow: 4px 9px 9px rgba(0,0,0,0.64), 4px 9px 9px rgba(0,0,0,0.58);
 }
