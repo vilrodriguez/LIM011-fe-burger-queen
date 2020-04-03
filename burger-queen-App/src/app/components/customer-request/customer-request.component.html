@@ -7,14 +7,13 @@
     <label class="cliente-name">Nombre de cliente:</label>
     <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre"/>
     <div class="form-order">
-      <label>Mesa #:</label>
+      <label class="cliente-name">Mesa #:</label>
       <input type="number" formControlName="table" class="form-control" />
-      <label><span></span>Para Delivery:</label>
+      <label class="delivery"><span></span>Para Delivery:</label>
       <input type="checkbox" formControlName="delivery" class="form-control" />
-
     </div>
     <p>{{ customerName }}</p>
-    <p>{{ todaydate }}</p>
+    <p class="date">{{ todaydate }}</p>
     <ul class="title-list">
       <li>Producto</li>
       <li>Precio</li>

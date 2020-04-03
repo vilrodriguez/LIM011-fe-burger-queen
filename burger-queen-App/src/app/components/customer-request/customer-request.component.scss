@@ -2,6 +2,11 @@
   list-style-type: none;
   width: 90%;
   height: 90%;
+
+}
+.form-container{
+  border-color: rgb(49, 4, 49);
+  border-width: 2.5px;
 }
 
 .customer-order-list-item button {
@@ -42,16 +47,23 @@
 .form-order{
   display: flex;
   flex-direction: row;
+  padding-top: 13px;
 }
 .cliente-name{
   font-size: 21px;
 }
-
-/* .listoo {
-  display: table-row-group;
-  width: 30px;
-} */
-.form-container .form-control[type="number"] {
+.delivery {
+  font-size: 21px;
+  margin-left: 43px;
+}
+.date{
+ padding-top: 10px;
+ color: hsl(180, 50%, 1%);
+ background-color: hsl(203, 7%, 46%);
+ text-align: center;
+ margin-top: 10px;
+}
+ontainer .form-control[type="number"] {
   width: 40px;
 }
 .form-control:focus{
@@ -67,6 +79,7 @@ border: 1.5px solid rgb(230, 37, 37);
     font-style: italic;
     color: #080808;
     font-weight: bold;
+    margin-left: 114px;
     background-color: #ce7479;
     border-radius: 50%;
     border: 3px double #e70a0a;
@@ -99,6 +112,7 @@ border: 1.5px solid rgb(230, 37, 37);
     font-style: italic;
     color: #080808;
     font-weight: bold;
+    margin-left: 55px;
     background-color: #7bcdee;
     border-radius: 50%;
     border: 3px double hsl(202, 94%, 48%);
@@ -109,3 +123,4 @@ border: 1.5px solid rgb(230, 37, 37);
   opacity: 0.6;
   text-decoration: none;
 }
+
