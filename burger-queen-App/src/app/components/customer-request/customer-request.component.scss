@@ -2,6 +2,11 @@
   list-style-type: none;
   width: 90%;
   height: 90%;
+
+}
+.form-container{
+  border-color: rgb(49, 4, 49);
+  border-width: 2.5px;
 }
 
 .customer-order-list-item button {
@@ -42,6 +47,7 @@
   // background: blueviolet;
   display: inline-flex;
 }
+
 .cliente-name{
   font-size: 21px;
 }
@@ -129,6 +135,7 @@ border: 1.5px solid rgb(230, 37, 37);
     font-style: italic;
     color: #080808;
     font-weight: bold;
+    margin-left: 114px;
     background-color: #ce7479;
     border-radius: 50%;
     border: 3px double #e70a0a;
@@ -161,6 +168,7 @@ border: 1.5px solid rgb(230, 37, 37);
     font-style: italic;
     color: #080808;
     font-weight: bold;
+    margin-left: 55px;
     background-color: #7bcdee;
     border-radius: 50%;
     border: 3px double hsl(202, 94%, 48%);
@@ -171,3 +179,4 @@ border: 1.5px solid rgb(230, 37, 37);
   opacity: 0.6;
   text-decoration: none;
 }
+
