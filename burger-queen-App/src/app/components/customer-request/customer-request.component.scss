@@ -18,9 +18,12 @@
   justify-content: space-around;
   list-style: none;
 }
-/* .form-container label{
-  width: 30px;
-} */
+// .form-container {
+//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+// } 
+
+
+/* input menu */
 .form-container .form-control {
   color: rgb(7, 1, 1);
   height: 32px;
@@ -39,13 +42,72 @@
   // background: blueviolet;
   display: inline-flex;
 }
-.form-order{
-  display: flex;
-  flex-direction: row;
-}
 .cliente-name{
   font-size: 21px;
 }
+
+/* Delivery checkbox */
+  // .form-order-inputs{
+  //     display: inline;
+  //     margin: 10em;
+  // }
+.form-order-inputs label {
+  display: inline-block;
+  background-color: lightgray;
+  border: 2px solid darkgray;
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all .2s;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100px;
+
+}
+.form-order-inputs label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "+";
+  transition: transform .3s ease-in-out;
+}
+
+.form-order-inputs input[type="checkbox"]:checked + label::before {
+  content: "°";
+  /* transform: rotate(-360deg);*/
+  transition: transform .3s ease-in-out;
+}
+
+.form-order-inputs input[type="checkbox"]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all .2s;
+}
+
+.form-order-inputs input[type="checkbox"]{
+  display: absolute;
+  position: absolute;
+  opacity: 0;
+}
+.form-order-inputs input[type="checkbox"]:focus + label{
+ border: 2px solid gray;
+}
+
+
 
 /* .listoo {
   display: table-row-group;
