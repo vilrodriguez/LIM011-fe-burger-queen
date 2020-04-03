@@ -11,6 +11,9 @@ export class MenuNameService {
   currentString = this.menuNameSource.asObservable();
   currentProduct = this.arrOrder.asObservable();
 
+  // private arrOrdertoReduceProduct = new BehaviorSubject([]);
+  // currentProductsToreduceFrom = this.arrOrder.asObservable();
+
   changeString(value: string) {
     this.menuNameSource.next(value);
   }
@@ -38,6 +41,7 @@ export class MenuNameService {
       });
     }
     this.arrOrder.next(newArrOrder);
+
   }
 
   reduceProductOrder( obj: { product: string; price: number; quantity: number; subtotal: number; } ) {
@@ -71,5 +75,5 @@ export class MenuNameService {
     const obj = [];
     this.arrOrder.next(obj);
     }
-}
+  }
 

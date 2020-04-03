@@ -3,14 +3,17 @@
     [formGroup]="OrderForm"
     (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"
     method="post">
-    <div class="container-div"></div>
-    <label class="cliente-name">Nombre de cliente:</label>
-    <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre"/>
-    <div class="form-order">
-      <label class="cliente-name">Mesa #:</label>
-      <input type="number" formControlName="table" class="form-control" />
-      <label class="delivery"><span></span>Para Delivery:</label>
-      <input type="checkbox" formControlName="delivery" class="form-control" />
+    <div class="container-div">
+      <label class="cliente-name">Nombre de cliente:</label>
+      <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre"/>
+      
+        <label>Mesa #:</label>
+        <input type="number" formControlName="table" class="form-control" />
+        
+      <div class="form-order-inputs">
+        <input type="checkbox" formControlName="delivery" id="checkbox-delivery" class="form-control" />
+      <label for="checkbox-delivery">Delivery</label>
+      </div>
     </div>
     <p>{{ customerName }}</p>
     <p class="date">{{ todaydate }}</p>
