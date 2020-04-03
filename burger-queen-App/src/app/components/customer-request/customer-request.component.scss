@@ -86,7 +86,7 @@
 }
 
 .form-order-inputs input[type="checkbox"]:checked + label::before {
-  content: "°";
+  content: "✔";
   /* transform: rotate(-360deg);*/
   transition: transform .3s ease-in-out;
 }
