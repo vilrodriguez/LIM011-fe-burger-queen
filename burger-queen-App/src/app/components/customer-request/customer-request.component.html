@@ -1,18 +1,16 @@
 <section>
-  <form class="form-container"
-    [formGroup]="OrderForm"
-    (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"
+  <form class="form-container" [formGroup]="OrderForm" (ngSubmit)="sendOrder(OrderForm.value, result, todaydate)"
     method="post">
     <div class="container-div">
       <label class="cliente-name">Nombre de cliente:</label>
-      <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre"/>
-      
-        <label>Mesa #:</label>
+      <input type="text" formControlName="customerName" class="form-control" placeholder="Nombre" />
+      <div class="table-order">
+        <label>Mesa #:</label> <label>Mesa #:</label>
         <input type="number" formControlName="table" class="form-control" />
-        
+      </div>
       <div class="form-order-inputs">
         <input type="checkbox" formControlName="delivery" id="checkbox-delivery" class="form-control" />
-      <label for="checkbox-delivery">Delivery</label>
+        <label for="checkbox-delivery">Delivery</label>
       </div>
     </div>
     <p>{{ customerName }}</p>
