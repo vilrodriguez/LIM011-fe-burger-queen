@@ -12,27 +12,25 @@ export class MenuLinksComponent implements OnInit {
   lunchButton: string;
   drinksButton: string;
   sideDishesButton: string;
-  
+
   constructor(private menuNameService: MenuNameService) {
-    
     this.breakfastButton = 'D';
     this.lunchButton = 'P';
     this.drinksButton = 'B';
     this.sideDishesButton = 'A';
 
-    this.menuNameService.currentString.subscribe(string =>{
+    this.menuNameService.currentString.subscribe(string => {
       this.menuString = string;
     });
   }
 
-  evento(name){
+  evento(name) {
     const string = name;
     this.menuNameService.changeString(string);
-    
   }
 
-  ngOnInit(): void{
-  } 
+  ngOnInit(): void {
+  }
 
 }
 
