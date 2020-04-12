@@ -1,24 +1,21 @@
 :root {
-  --ftn-family :'Roboto Condensed', sans-serif;
   --ftn-color: #45474b;
+  --ftn-family :'Roboto Condensed', sans-serif;
 }
 
 .menu-list-wrapper{
-    padding: 2em .5em 0 1.5em;
-    //text-align: left;
     // align-content: center;
     // background-color: #242527;
-    background-color: black;
-    text-align: center;
+    // text-align: center;
+    display: flex;
+    text-align: left;
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em .5em 0 1.5em;
+    box-shadow: inset -13px 12px 36px -14px rgba(156,156,156,1);
     -webkit-box-shadow: inset -13px 12px 36px -14px rgba(156,156,156,1);
     -moz-box-shadow: inset -13px 12px 36px -14px rgba(156,156,156,1);
-    box-shadow: inset -13px 12px 36px -14px rgba(156,156,156,1);
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    justify-content: center;
-    margin: 17px;
-    margin-top: 0;
 }
 .menu-title{
   color: black;
@@ -31,16 +28,16 @@
     display:flex;
     padding: none;
     // flex-wrap: wrap;
-    flex-direction: column;
     list-style-type: none;
+    flex-direction: column;
     // justify-content: center;
 }
 .menu-list-item li{
     width: 100px;
     height: auto;
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
+    flex-direction: row;
     -ms-flex-wrap: nowrap;
     align-content: center;
 }
@@ -54,12 +51,11 @@
 }
 .menu-list-item .item-btn {
   margin: 0.5em;
-  font-size: 1em;
   display: flex;
+  font-size: 1em;
   color: white;
   border-style: none;
   text-align: center;
-
   border-radius: 50px;
   flex-direction: row;
   justify-content: center;
@@ -67,26 +63,10 @@
   font-family: var(--ftn-family);
 }
 .menu-list-item p{
-  display: block;
   padding: 1em;
-  // background: red;
+  display: block;
 }
 
 .menu-list-item .item-btn:hover {
   background-color:#006b61;
-  // border: 2px solid #006b61;
 }
-
-
-
-// .item-btn{
-//   border: none;
-//   margin: 0.5em;
-//   padding: 1em;
-//   width: 100%;
-//   height: auto;
-//   font-family: 'Roboto', sans-serif;
-//   border-radius: 1em;
-//   background-color: darkslategrey;
-//   color: floralwhite;
-// }
