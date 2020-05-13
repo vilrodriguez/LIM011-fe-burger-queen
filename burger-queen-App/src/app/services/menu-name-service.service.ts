@@ -10,6 +10,10 @@ export class MenuNameService {
   private arrOrder = new BehaviorSubject([]);
   currentString = this.menuNameSource.asObservable();
   currentProduct = this.arrOrder.asObservable();
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd453660d1cc3ca210de285252d7fb6eee95f6ff
   changeString(value: string) {
     this.menuNameSource.next(value);
   }
