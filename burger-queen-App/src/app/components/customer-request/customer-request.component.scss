@@ -15,7 +15,7 @@
 .form-container .input-container{
   // background:red;
   display: flex;
-  text-align: center;  
+  text-align: center;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -52,7 +52,7 @@
   color:white;
   height: 350px;
   margin-top:1em;
-  
+
 }
 .form-container .title-list {
   display: flex;
@@ -67,26 +67,30 @@
 
 // List Products
 .customer-order-list {
-  // background: red;
+
   display: flex;
   font-size: 1em;
   color:  #242527;
   list-style: decimal;
   flex-direction: column;
-  // justify-content: space-between;
-}
-.customer-order-list .customer-order-list-item{
-  // border: 2px solid green;
-  display: flex;
-  flex-direction:row;
-  margin: 0.2em;
-  justify-content: space-between;
-}
-.customer-order-list .customer-order-list-item button {
-  width: 2em;
-  height: 2em;
-  border-style: none;
-  background-color: none;
+
+  .customer-order-list-item{
+    display: flex;
+    flex-direction:row;
+    margin: 0.2em;
+    justify-content: space-between;
+  }
+  button {
+    width: 2em;
+    height: 2em;
+    border-style: none;
+    background: none;
+
+    i {
+      font-size:1.5em;
+      color: #e45a00;
+    }
+  }
 }
 
 // TOTAL ****************************
