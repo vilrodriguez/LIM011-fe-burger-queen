@@ -1,13 +1,13 @@
 .header-title {
-  background-color: #242527;
-  text-align: center;
-  text-justify:auto;
   width: 100%;
   height: 5em;
+  grid-row-end: 2;
+  grid-row-start: 1;
   grid-column-start: 1;
   grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  text-justify:auto;
+  text-align: center;
+  background-color: #242527;
 }
 
 .neon-text {

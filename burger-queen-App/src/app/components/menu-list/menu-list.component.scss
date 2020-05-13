@@ -4,9 +4,6 @@
 }
 
 .menu-list-wrapper{
-    // align-content: center;
-    // background-color: #242527;
-    // text-align: center;
     display: flex;
     text-align: left;
     list-style-type: none;
@@ -27,10 +24,8 @@
     height:80vh;
     display:flex;
     padding: none;
-    // flex-wrap: wrap;
     list-style-type: none;
     flex-direction: column;
-    // justify-content: center;
 }
 .menu-list-item li{
     width: 100px;
