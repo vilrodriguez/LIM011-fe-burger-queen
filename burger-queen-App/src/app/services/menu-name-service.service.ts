@@ -13,7 +13,12 @@ export class MenuNameService {
   changeString(value: string) {
     this.menuNameSource.next(value);
   }
-
+  todayDate() {
+    const ndate = new Date();
+    // const d = ndate.getDate() + ndate.getHours() + ndate.getMonth();
+    // return d;
+    return ndate;
+  }
   changeProduct(obj: { product: string; price: number; image: string; quantity: number; subtotal: number; }) {
     let newArrOrder: any;
     const findProduct = this.arrOrder.value.find(element => element.product === obj.product);
