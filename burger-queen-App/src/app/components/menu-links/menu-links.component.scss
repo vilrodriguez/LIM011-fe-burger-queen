@@ -4,7 +4,6 @@
 }
 
 .menu-button {
-  // padding: 1em;
   height: 25%;
   width: 100%;
   display: flex;
@@ -22,9 +21,10 @@
   color: #f8c90c;
   background-color:#006b61;
   -webkit-box-shadow: 7px 9px 15px -1px rgba(171,171,171,1);
--moz-box-shadow: 7px 9px 15px -1px rgba(171,171,171,1);
-box-shadow: 7px 9px 15px -1px rgba(171,171,171,1);
+  -moz-box-shadow: 7px 9px 15px -1px rgba(171,171,171,1);
+  box-shadow: 7px 9px 15px -1px rgba(171,171,171,1);
 }
+
 .menu-button:active {
   color:  #242527;
   background-color: #f8c90c;

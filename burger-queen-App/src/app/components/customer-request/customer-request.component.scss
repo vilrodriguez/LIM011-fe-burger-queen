@@ -3,46 +3,42 @@
   height: 100%;
   background: #b3aa99;
   padding: 1em 1em 1.5em 1.5em;
-}
-.customer-order-wrapper .menu-title {
-  color: black;
-  font-size: 2em;
-  margin-bottom: .5em;
+  .menu-title {
+    color: black;
+    font-size: 2em;
+    margin-bottom: .5em;
+  }
 }
 
 // Form ***********************
 
 .form-container .input-container{
-  // background:red;
   display: flex;
   text-align: center;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-}
-.input-container label{
-  // border: 2px solid blue;
-  color: black;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-.input-container input{
-  // border: 2px solid green;
-  height: 2.5em;
-  font-size: 1em;
-  // color: black;
-  color: #242527;
-  font-weight: bold;
-  margin-top: 0.5em;
-  text-align:center;
-  border-style: none;
-  border-radius: 50px;
-  text-transform: uppercase;
-  background-color: #f8c900;
-}
-.input-container input[type="number"]{
-  // border: 2px solid green;
-  width: 80px;
+
+  label{
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  input{
+    height: 2.5em;
+    font-size: 1em;
+    color: #242527;
+    font-weight: bold;
+    margin-top: 0.5em;
+    text-align:center;
+    border-style: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background-color: #f8c900;
+  }
+  input[type="number"]{
+    width: 80px;
+  }
 }
 
 // Order list ***********************
@@ -55,7 +51,8 @@
 
 }
 .form-container .title-list {
-  display: flex;
+  display: inline-grid;
+  grid-template-columns: 4.5fr 3fr 3fr 3fr 1fr;
   list-style: none;
   margin-bottom: 1em;
   flex-direction: row;
@@ -67,7 +64,6 @@
 
 // List Products
 .customer-order-list {
-
   display: flex;
   font-size: 1em;
   color:  #242527;
@@ -75,27 +71,28 @@
   flex-direction: column;
 
   .customer-order-list-item{
-    display: flex;
-    flex-direction:row;
+    display: inline-grid;
+    grid-template-columns: 4.5fr 3fr 3fr 3fr 1fr;
     margin: 0.2em;
+    flex-direction:row;
     justify-content: space-between;
-  }
-  button {
-    width: 2em;
-    height: 2em;
-    border-style: none;
-    background: none;
 
-    i {
-      font-size:1.5em;
-      color: #e45a00;
+    button {
+      width: 2em;
+      height: 2em;
+      border-style: none;
+      background: none;
+
+      i {
+        font-size:1.5em;
+        color: #e45a00;
+      }
     }
   }
 }
 
 // TOTAL ****************************
 .total{
-  // background:red;
   font-size: 1em;
   padding: 0.5em;
   font-weight: bold;
@@ -112,7 +109,6 @@
   justify-content: space-evenly;
 }
 .form-container .form-btn {
-  // background: red;
   height:3em;
   width: 10em;
   cursor: pointer;
@@ -122,8 +118,7 @@
   border-radius: 25px;
 }
 
-.form-container .form-btn:hover {
-  // background: red;
+.form-btn:hover {
   background: #006b61;
   color:white;
 }
@@ -175,17 +170,16 @@
 }
 
 .form-order-inputs input[type="checkbox"]:checked + label {
-  border: 2px solid #00d4ac;
-
-  background-color:#00d4ac;
   color: white;
   transition: all .2s;
+  background-color:#00d4ac;
+  border: 2px solid #00d4ac;
 }
 
 .form-order-inputs input[type="checkbox"]{
+  opacity: 0;
   display: absolute;
   position: absolute;
-  opacity: 0;
 }
 .form-order-inputs input[type="checkbox"]:focus + label{
  border: 2px solid gray;
